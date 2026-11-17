@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "../../lib/asset";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import {
@@ -105,7 +106,7 @@ export default function Navbar() {
           className="flex shrink-0 items-center"
         >
           <Image
-            src="/images/logo.png"
+             src={assetPath("/images/logo.png")}
             alt="URSO INSTAL"
             width={677}
             height={369}
