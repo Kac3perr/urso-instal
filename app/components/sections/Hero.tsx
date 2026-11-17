@@ -92,7 +92,7 @@ export default function Hero() {
       {/* ZDJĘCIE NA CAŁĄ SZEROKOŚĆ */}
       <div className="absolute inset-0 -z-30">
         <Image
-          src="/images/hero-rozdzielnica.jpg"
+          src="/urso-instal/images/hero-rozdzielnica.jpg"
           alt="Rozdzielnica elektryczna – URSO INSTAL"
           fill
           priority

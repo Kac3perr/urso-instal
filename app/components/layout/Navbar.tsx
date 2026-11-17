@@ -106,7 +106,7 @@ export default function Navbar() {
           className="flex shrink-0 items-center"
         >
           <Image
-             src={assetPath("/images/logo.png")}
+           src="/urso-instal/images/logo.png"
             alt="URSO INSTAL"
             width={677}
             height={369}
