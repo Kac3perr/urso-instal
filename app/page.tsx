@@ -1,10 +1,6 @@
 
-import Hero from "./components/sections/Hero";
+import ServiceSelector from "./components/sections/ServiceSelector";
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-    </>
-  );
+  return <ServiceSelector />;
 }
