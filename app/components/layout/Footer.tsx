@@ -39,7 +39,7 @@ const translations = {
     tax: "NIP",
     contactButton: "Skontaktuj się",
     copyright: "Wszelkie prawa zastrzeżone.",
-    company: "URSO INSTAL – Wojciech Jochemczyk",
+    company: "URSO INSTAL – Marcin Zdybek",
   },
   en: {
     description:
@@ -61,7 +61,7 @@ const translations = {
     tax: "Tax ID",
     contactButton: "Get in touch",
     copyright: "All rights reserved.",
-    company: "URSO INSTAL – Wojciech Jochemczyk",
+    company: "URSO INSTAL – Marcin Zdybek",
   },
   de: {
     description:
@@ -83,7 +83,7 @@ const translations = {
     tax: "Steuernummer",
     contactButton: "Kontakt aufnehmen",
     copyright: "Alle Rechte vorbehalten.",
-    company: "URSO INSTAL – Wojciech Jochemczyk",
+    company: "URSO INSTAL – Marcin Zdybek",
   },
 };
 

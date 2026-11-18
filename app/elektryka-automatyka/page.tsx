@@ -22,7 +22,8 @@ import { useLocale } from "../components/providers/Providers";
 
 import heroRozdzielnica from "../../public/images/hero-rozdzielnica.jpg";
 import kameraTermowizyjna from "../../public/images/kamera-termowizyjna.png";
-
+import auto1 from "../../public/images/auto1.png";
+import auto2 from "../../public/images/auto2.png";
 const content = {
   pl: {
     eyebrow: "URSO INSTAL / ELEKTRYKA I AUTOMATYKA",
@@ -115,7 +116,7 @@ const content = {
     contactTitle: "Porozmawiajmy o Twojej instalacji.",
     contactDescription:
       "Opowiedz nam o planowanej prefabrykacji, modernizacji maszyny lub potrzebnych pomiarach. Omówimy zakres prac i możliwe rozwiązania.",
-    company: "URSO INSTAL – Wojciech Jochemczyk",
+    company: "URSO INSTAL – Marcin Zdybek",
     qualification: "Uprawnienia SEP G1 E+D",
     area: "Obszar działania: Śląsk / Cała Polska",
     nip: "NIP: 6462771321",
@@ -442,7 +443,7 @@ export default function ElektrykaAutomatykaPage() {
         <div className="mx-auto grid max-w-[1600px] gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-16 lg:px-12 lg:py-20">
           <div className="relative min-h-[320px] overflow-hidden rounded-sm bg-[#252b2f] sm:min-h-[440px]">
             <Image
-              src={heroRozdzielnica}
+              src={auto2}
               alt="Prefabrykacja szafy sterowniczej"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -513,7 +514,7 @@ export default function ElektrykaAutomatykaPage() {
 
           <div className="relative min-h-[320px] overflow-hidden rounded-sm bg-[#252b2f] sm:min-h-[470px]">
             <Image
-              src={kameraTermowizyjna}
+              src={auto1}
               alt="Diagnostyka techniczna urządzeń przemysłowych"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

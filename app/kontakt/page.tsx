@@ -52,7 +52,7 @@ const translations = {
     privacy:
       "Dane z formularza zostaną przesłane bezpośrednio do URSO INSTAL w celu obsługi zapytania.",
     contactLabel: "Dane kontaktowe",
-    contactTitle: "URSO INSTAL – Wojciech Jochemczyk",
+    contactTitle: "URSO INSTAL – Marcin Zdybek",
     contactDescription:
       "Usługi dla zakładów produkcyjnych, obiektów przemysłowych i instalacji elektrycznych.",
     phoneLabel: "Telefon",
@@ -89,7 +89,7 @@ const translations = {
     areaDescription:
       "Realizujemy usługi dla zakładów produkcyjnych i obiektów przemysłowych. Zakres i termin prac ustalamy indywidualnie.",
     back: "Wróć do strony głównej",
-    footer: "URSO INSTAL • Wojciech Jochemczyk",
+    footer: "URSO INSTAL • Marcin Zdybek",
   },
 
   en: {
@@ -127,7 +127,7 @@ const translations = {
     privacy:
       "Your form details will be sent directly to URSO INSTAL to handle your enquiry.",
     contactLabel: "Contact details",
-    contactTitle: "URSO INSTAL – Wojciech Jochemczyk",
+    contactTitle: "URSO INSTAL – Marcin Zdybek",
     contactDescription:
       "Services for manufacturing facilities, industrial sites and electrical installations.",
     phoneLabel: "Phone",
@@ -164,7 +164,7 @@ const translations = {
     areaDescription:
       "We provide services for manufacturing facilities and industrial sites. The scope and timing are agreed individually.",
     back: "Back to homepage",
-    footer: "URSO INSTAL • Wojciech Jochemczyk",
+    footer: "URSO INSTAL • Marcin Zdybek",
   },
 
   de: {
@@ -203,7 +203,7 @@ const translations = {
     privacy:
       "Ihre Formulardaten werden direkt an URSO INSTAL zur Bearbeitung Ihrer Anfrage gesendet.",
     contactLabel: "Kontaktdaten",
-    contactTitle: "URSO INSTAL – Wojciech Jochemczyk",
+    contactTitle: "URSO INSTAL – Marcin Zdybek",
     contactDescription:
       "Dienstleistungen für Produktionsbetriebe, Industrieanlagen und elektrische Installationen.",
     phoneLabel: "Telefon",
@@ -240,7 +240,7 @@ const translations = {
     areaDescription:
       "Wir bieten Dienstleistungen für Produktionsbetriebe und Industrieanlagen an. Umfang und Termin werden individuell vereinbart.",
     back: "Zurück zur Startseite",
-    footer: "URSO INSTAL • Wojciech Jochemczyk",
+    footer: "URSO INSTAL • Marcin Zdybek",
   },
 };
 

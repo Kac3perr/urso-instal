@@ -21,7 +21,7 @@ import { useLocale } from "../components/providers/Providers";
 
 import heroRozdzielnica from "../../public/images/hero-rozdzielnica.jpg";
 import kameraTermowizyjna from "../../public/images/kamera-termowizyjna.png";
-
+import about from "../../public/images/about.jpeg";
 const content = {
   pl: {
     eyebrow: "URSO INSTAL / O FIRMIE",
@@ -104,7 +104,7 @@ const content = {
       },
     ],
     ownerEyebrow: "URSO INSTAL",
-    ownerTitle: "Wojciech Jochemczyk",
+    ownerTitle: "Marcin Zdybek",
     ownerDescription:
       "Działalność obejmuje diagnostykę termowizyjną, elektrykę i automatykę przemysłową. Zakres realizacji dobierany jest do rodzaju instalacji oraz potrzeb zakładu.",
     ownerQualification:
@@ -199,7 +199,7 @@ const content = {
       },
     ],
     ownerEyebrow: "URSO INSTAL",
-    ownerTitle: "Wojciech Jochemczyk",
+    ownerTitle: "Marcin Zdybek",
     ownerDescription:
       "The business covers thermographic diagnostics, electrical engineering and industrial automation. The scope of each project is tailored to the installation and facility requirements.",
     ownerQualification:
@@ -294,7 +294,7 @@ const content = {
       },
     ],
     ownerEyebrow: "URSO INSTAL",
-    ownerTitle: "Wojciech Jochemczyk",
+    ownerTitle: "Marcin Zdybek",
     ownerDescription:
       "Das Unternehmen bietet thermografische Diagnostik, Elektrotechnik und Industrieautomation. Der Leistungsumfang wird an die jeweilige Anlage und die Anforderungen des Betriebs angepasst.",
     ownerQualification:
@@ -318,7 +318,7 @@ export default function AboutPage() {
       {/* HERO */}
       <section className="relative isolate min-h-[610px] overflow-hidden bg-[#20272d] text-white lg:min-h-[660px]">
         <Image
-          src={heroRozdzielnica}
+          src={about}
           alt="Instalacja elektryczna w środowisku przemysłowym"
           fill
           priority

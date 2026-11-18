@@ -22,7 +22,10 @@ import {
 import { useLocale } from "../components/providers/Providers";
 
 import kameraTermowizyjna from "../../public/images/kamera-termowizyjna.png";
-import heroRozdzielnica from "../../public/images/hero-rozdzielnica.jpg";
+
+import termo1 from "../../public/images/termo1.png";
+import termo2 from "../../public/images/termo2.png";
+import termo3 from "../../public/images/termo3.png";
 
 const content = {
   pl: {
@@ -135,11 +138,11 @@ const content = {
     contactTitle: "Zamów inspekcję termowizyjną lub skonsultuj wymogi swojej polisy.",
     contactDescription:
       "Skontaktuj się z nami, aby omówić zakres badania, wymagania dokumentacyjne lub potrzeby techniczne Twojego zakładu.",
-    company: "URSO INSTAL – Wojciech Jochemczyk",
+    company: "URSO INSTAL – Marcin Zdybek",
     qualification:
       "Certyfikowany Termografista ISO 18436-7 Level 1 | Uprawnienia SEP G1 E+D",
-    phone: "Telefon: [Twój numer]",
-    email: "E-mail: [Twój e-mail]",
+    phone: "Telefon: +48 534 485 858",
+    email: "E-mail: ursoinstal@gmail.com",
     area: "Obszar działania: Śląsk / Cała Polska",
     nip: "NIP: 6462771321",
     contactButton: "Przejdź do kontaktu",
@@ -257,11 +260,11 @@ const content = {
       "Order a thermographic inspection or discuss your insurance requirements.",
     contactDescription:
       "Contact us to discuss the scope of an inspection, documentation requirements or the technical needs of your facility.",
-    company: "URSO INSTAL – Wojciech Jochemczyk",
+    company: "URSO INSTAL – Marcin Zdybek",
     qualification:
       "ISO 18436-7 Level 1 Certified Thermographer | SEP G1 E+D qualifications",
-    phone: "Phone: [Your number]",
-    email: "E-mail: [Your e-mail]",
+    phone: "Phone: +48 534 485 858",
+    email: "E-mail: ursoinstal@gmail.com",
     area: "Service area: Silesia / Throughout Poland",
     nip: "Tax ID: 6462771321",
     contactButton: "Go to contact",
@@ -379,11 +382,11 @@ const content = {
       "Bestellen Sie eine thermografische Inspektion oder besprechen Sie Ihre Versicherungsanforderungen.",
     contactDescription:
       "Kontaktieren Sie uns, um den Prüfungsumfang, Dokumentationsanforderungen oder technische Bedürfnisse Ihres Betriebs zu besprechen.",
-    company: "URSO INSTAL – Wojciech Jochemczyk",
+    company: "URSO INSTAL – Marcin Zdybek",
     qualification:
       "Zertifizierter Thermograf ISO 18436-7 Level 1 | SEP G1 E+D",
-    phone: "Telefon: [Ihre Telefonnummer]",
-    email: "E-Mail: [Ihre E-Mail]",
+    phone: "Telefon: +48 534 485 858",
+    email: "E-Mail: ursoinstal@gmail.com",
     area: "Einsatzgebiet: Schlesien / Ganz Polen",
     nip: "Steuernummer: 6462771321",
     contactButton: "Zum Kontakt",
@@ -501,7 +504,7 @@ export default function ThermowizjaPage() {
             <div>
               <div className="relative min-h-[280px] overflow-hidden rounded-sm bg-[#252b2f] sm:min-h-[370px]">
                 <Image
-                  src={heroRozdzielnica}
+                  src={termo1}
                   alt="Rozdzielnica elektryczna poddawana inspekcji"
                   fill
                   sizes="(max-width: 1024px) 100vw, 45vw"
@@ -615,7 +618,7 @@ export default function ThermowizjaPage() {
         <div className="mx-auto grid max-w-[1600px] gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-12 lg:py-24">
           <div className="relative min-h-[320px] overflow-hidden rounded-sm bg-[#252b2f] sm:min-h-[470px]">
             <Image
-              src={heroRozdzielnica}
+              src={termo2}
               alt="Prefabrykowana szafa sterownicza"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"

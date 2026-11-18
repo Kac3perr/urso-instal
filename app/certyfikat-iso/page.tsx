@@ -17,6 +17,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useLocale } from "../components/providers/Providers";
+import { assetPath } from "../lib/asset";
 
 const translations = {
   pl: {
@@ -113,8 +114,7 @@ const translations = {
     ],
     scopeLabel: "Gdzie wykorzystujemy termowizję?",
     scopeTitle: "Diagnostyka urządzeń i infrastruktury przemysłowej",
-    scopeDescription:
-      "Inspekcje mogą obejmować między innymi:",
+    scopeDescription: "Inspekcje mogą obejmować między innymi:",
     scopeItems: [
       "Rozdzielnice główne niskiego i średniego napięcia",
       "Stacje transformatorowe",
@@ -133,7 +133,11 @@ const translations = {
     ctaButton: "Skontaktuj się z nami",
     back: "Wróć do strony głównej",
     footer: "URSO INSTAL • Certyfikacja i raportowanie",
+    downloadTitle: "Pobierz przykładową kartę usterki",
+    downloadDescription:
+      "Pobierz przykładowy dokument PDF, aby zobaczyć sposób prezentacji wyników inspekcji.",
   },
+
   en: {
     eyebrow: "Certification • ISO 18436-7 Level 1",
     title: "Reliable diagnostics begin with the right expertise.",
@@ -247,7 +251,11 @@ const translations = {
     ctaButton: "Contact us",
     back: "Back to homepage",
     footer: "URSO INSTAL • Certification and reporting",
+    downloadTitle: "Download a sample fault report",
+    downloadDescription:
+      "Download the sample PDF to see how inspection results are presented.",
   },
+
   de: {
     eyebrow: "Zertifizierung • ISO 18436-7 Level 1",
     title: "Zuverlässige Diagnostik beginnt mit der richtigen Kompetenz.",
@@ -361,6 +369,9 @@ const translations = {
     ctaButton: "Kontakt aufnehmen",
     back: "Zurück zur Startseite",
     footer: "URSO INSTAL • Zertifizierung und Berichterstattung",
+    downloadTitle: "Beispielhafte Fehlerkarte herunterladen",
+    downloadDescription:
+      "Laden Sie das PDF-Beispieldokument herunter, um die Darstellung der Prüfergebnisse zu sehen.",
   },
 };
 
@@ -374,6 +385,8 @@ const reportIcons = {
 export default function CertyfikatIsoPage() {
   const { locale } = useLocale();
   const t = translations[locale];
+
+  const reportPdf = assetPath("/raport-termowizyjny.pdf");
 
   return (
     <main className="overflow-hidden bg-white text-[#171b20] transition-colors duration-300 dark:bg-[#101316] dark:text-[#edf0f2]">
@@ -409,11 +422,12 @@ export default function CertyfikatIsoPage() {
               </Link>
 
               <a
-                href="#raport"
+                href={reportPdf}
+                download="raport-termowizyjny.pdf"
                 className="inline-flex min-h-14 items-center justify-center gap-3 border border-black/15 px-7 text-sm font-medium transition-colors hover:bg-black/[0.04] dark:border-white/15 dark:hover:bg-white/[0.05]"
               >
                 {t.secondary}
-                <ArrowRight size={16} />
+                <FileText size={16} />
               </a>
             </div>
           </div>
@@ -561,28 +575,28 @@ export default function CertyfikatIsoPage() {
             })}
           </div>
 
-          {/* INFORMACJA O WZORZE RAPORTU */}
-          <div className="mt-8 flex flex-col gap-5 border border-black/10 bg-white p-7 dark:border-white/10 dark:bg-[#101316] sm:flex-row sm:items-center sm:p-9">
+          {/* POBIERANIE PRZYKŁADOWEGO RAPORTU */}
+          <a
+            href={reportPdf}
+            download="raport-termowizyjny.pdf"
+            className="group mt-8 flex flex-col gap-5 border border-black/10 bg-white p-7 transition-colors hover:border-[#55758b]/50 dark:border-white/10 dark:bg-[#101316] sm:flex-row sm:items-center sm:p-9"
+          >
             <div className="flex h-14 w-14 shrink-0 items-center justify-center bg-[#eaf0f3] text-[#45677e] dark:bg-[#26343e] dark:text-[#c2d4df]">
               <FileText size={26} strokeWidth={1.4} />
             </div>
-            <div>
-              <h3 className="font-semibold">
-                {locale === "pl"
-                  ? "Przykładowa karta usterki"
-                  : locale === "de"
-                    ? "Beispiel einer Fehlerkarte"
-                    : "Sample fault report"}
-              </h3>
+
+            <div className="flex-1">
+              <h3 className="font-semibold">{t.downloadTitle}</h3>
               <p className="mt-2 text-sm leading-7 text-[#697078] dark:text-[#a6afb7]">
-                {locale === "pl"
-                  ? "Wzorcowy dokument PDF zostanie udostępniony po podpięciu właściwego pliku raportu."
-                  : locale === "de"
-                    ? "Das PDF-Beispieldokument wird nach Bereitstellung der entsprechenden Berichtsdatei verfügbar sein."
-                    : "The sample PDF document will be available once the actual report file has been added."}
+                {t.downloadDescription}
               </p>
             </div>
-          </div>
+
+            <ArrowUpRight
+              size={20}
+              className="shrink-0 text-[#55758b] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
+          </a>
         </div>
       </section>
 
