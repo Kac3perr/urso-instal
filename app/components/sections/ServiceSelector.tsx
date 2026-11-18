@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { useLocale } from "../providers/Providers";
 
 import kameraTermowizyjna from "../../../public/images/kamera-termowizyjna.png";
@@ -144,9 +145,12 @@ export default function ServiceSelector() {
                   </span>
 
                   <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/50 transition-all duration-300 group-hover:border-white group-hover:bg-white group-hover:text-[#202326]">
-                    <span className="text-xl transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
-                      ↗
-                    </span>
+                    <ArrowUpRight
+                      size={21}
+                      strokeWidth={1.7}
+                      aria-hidden="true"
+                      className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    />
                   </span>
                 </div>
 
@@ -161,7 +165,12 @@ export default function ServiceSelector() {
 
                   <div className="mt-8 inline-flex items-center gap-3 border-b border-white/60 pb-2 text-sm font-medium transition-all duration-300 group-hover:gap-5 group-hover:border-white">
                     {service.label}
-                    <span aria-hidden="true">→</span>
+                    <ArrowRight
+                      size={17}
+                      strokeWidth={1.7}
+                      aria-hidden="true"
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
                   </div>
                 </div>
               </div>
