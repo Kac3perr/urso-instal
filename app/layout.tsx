@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import Footer from "./components/layout/Footer";
-
+import BackToTop from "./components/layout/BackToTop";
 import Providers from "./components/providers/Providers";
 import Navbar from "./components/layout/Navbar";
 
@@ -64,6 +64,7 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <BackToTop />
         </Providers>
       </body>
     </html>
