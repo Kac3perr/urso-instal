@@ -67,8 +67,8 @@ const translations = {
 
 const navigation = [
   { key: "about", href: "/o-firmie" },
-  { key: "thermography", href: "/" },
-  { key: "automation", href: "/automatyka-prefabrykacja" },
+  { key: "thermography", href: "/termowizja" },
+  { key: "automation", href: "/elektryka-automatyka" },
   { key: "measurements", href: "/pomiary-sep" },
 ] as const;
 

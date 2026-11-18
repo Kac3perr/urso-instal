@@ -2,6 +2,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+import Footer from "./components/layout/Footer";
 
 import Providers from "./components/providers/Providers";
 import Navbar from "./components/layout/Navbar";
@@ -62,6 +63,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <main>{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>
