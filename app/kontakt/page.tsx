@@ -514,7 +514,7 @@ export default function KontaktPage() {
                       </a>
                     ) : (
                       <p className="mt-1 text-sm text-white/60">
-                        Do uzupełnienia
+                        +48534485858
                       </p>
                     )}
                   </div>
@@ -536,7 +536,7 @@ export default function KontaktPage() {
                       </a>
                     ) : (
                       <p className="mt-1 text-sm text-white/60">
-                        Do uzupełnienia
+                        ursoinstal@gmail.com
                       </p>
                     )}
                   </div>
