@@ -20,10 +20,10 @@ import {
 } from "lucide-react";
 import { useLocale } from "../components/providers/Providers";
 
-import heroRozdzielnica from "../../public/images/hero-rozdzielnica.jpg";
-import kameraTermowizyjna from "../../public/images/kamera-termowizyjna.png";
-import auto1 from "../../public/images/auto1.png";
-import auto2 from "../../public/images/auto2.png";
+
+import heroRozdzielnica from "../../public/images/optimized/hero-rozdzielnica.webp";
+import auto1 from "../../public/images/optimized/auto1.webp";
+import auto2 from "../../public/images/optimized/auto2.webp";
 const content = {
   pl: {
     eyebrow: "URSO INSTAL / ELEKTRYKA I AUTOMATYKA",

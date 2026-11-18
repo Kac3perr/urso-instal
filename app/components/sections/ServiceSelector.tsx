@@ -6,8 +6,8 @@ import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { useLocale } from "../providers/Providers";
 
-import kameraTermowizyjna from "../../../public/images/kamera-termowizyjna.png";
-import heroRozdzielnica from "../../../public/images/hero-rozdzielnica.jpg";
+import kameraTermowizyjna from "../../../public/images/optimized/kamera-termowizyjna.webp";
+import heroRozdzielnica from "../../../public/images/optimized/hero-rozdzielnica.webp";
 
 const translations = {
   pl: {

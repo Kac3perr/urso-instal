@@ -21,11 +21,11 @@ import {
 } from "lucide-react";
 import { useLocale } from "../components/providers/Providers";
 
-import kameraTermowizyjna from "../../public/images/kamera-termowizyjna.png";
+import kameraTermowizyjna from "../../public/images/optimized/kamera-termowizyjna.webp";
 
-import termo1 from "../../public/images/termo1.png";
-import termo2 from "../../public/images/termo2.png";
-import termo3 from "../../public/images/termo3.png";
+import termo1 from "../../public/images/optimized/termo1.webp";
+import termo2 from "../../public/images/optimized/termo2.webp";
+import termo3 from "../../public/images/optimized/termo3.webp";
 
 const content = {
   pl: {

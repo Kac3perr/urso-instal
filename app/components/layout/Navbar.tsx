@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import lightLogo from "../../../public/images/logo.png";
 import darkLogo from "../../../public/images/logo2.png";
 import { useTheme } from "next-themes";
@@ -28,6 +29,7 @@ const languages: { code: Locale; name: string }[] = [
 
 const translations = {
   pl: {
+    home: "Strona główna",
     about: "O firmie",
     thermography: "Termowizja dla Ubezpieczeń i UR",
     automation: "Automatyka & Prefabrykacja",
@@ -40,6 +42,7 @@ const translations = {
     dark: "Ciemny motyw",
   },
   en: {
+    home: "Home",
     about: "About us",
     thermography: "Thermography for Insurance & Maintenance",
     automation: "Automation & Control Panels",
@@ -52,6 +55,7 @@ const translations = {
     dark: "Dark theme",
   },
   de: {
+    home: "Startseite",
     about: "Über uns",
     thermography: "Thermografie für Versicherungen & Instandhaltung",
     automation: "Automatisierung & Schaltschrankbau",
@@ -66,6 +70,7 @@ const translations = {
 };
 
 const navigation = [
+  { key: "home", href: "/" },
   { key: "about", href: "/o-firmie" },
   { key: "thermography", href: "/termowizja" },
   { key: "automation", href: "/elektryka-automatyka" },
@@ -75,6 +80,7 @@ const navigation = [
 export default function Navbar() {
   const { locale, setLocale } = useLocale();
   const { theme, setTheme } = useTheme();
+  const pathname = usePathname();
 
   const [mounted, setMounted] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -87,6 +93,11 @@ export default function Navbar() {
   const t = translations[locale];
   const isDark = mounted && theme === "dark";
 
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   const toggleTheme = () => {
     setTheme(isDark ? "light" : "dark");
   };
@@ -97,6 +108,20 @@ export default function Navbar() {
     setMobileOpen(false);
   };
 
+  const desktopLinkClass = (href: string) =>
+    `group relative shrink-0 whitespace-nowrap py-3 text-[12px] font-medium tracking-[0.015em] transition-colors duration-200 2xl:text-[13px] ${
+      isActive(href)
+        ? "text-[#496a7d] dark:text-[#c0d8e5]"
+        : "text-[#566168] hover:text-[#52758a] dark:text-[#b5c0c5] dark:hover:text-[#a9c5d5]"
+    }`;
+
+  const mobileLinkClass = (href: string) =>
+    `flex items-center justify-between gap-3 border-b border-[#e8eae8] py-4 text-sm font-medium transition-colors dark:border-[#343d42] ${
+      isActive(href)
+        ? "border-l-2 border-l-[#66879a] bg-[#eef2f3] pl-3 text-[#496a7d] dark:bg-[#26343b] dark:text-[#c0d8e5]"
+        : "text-[#46535a] hover:text-[#52758a] dark:text-[#dce2e5] dark:hover:text-[#a9c5d5]"
+    }`;
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#e4e5e3] bg-[#fafaf8]/95 text-[#293238] backdrop-blur-xl transition-colors duration-300 dark:border-[#343d42] dark:bg-[#1b2226]/95 dark:text-[#edf0f1]">
       <nav className="mx-auto flex min-h-[82px] w-full max-w-[1920px] items-center justify-between gap-5 px-5 sm:px-8 lg:px-10 2xl:px-14">
@@ -104,7 +129,7 @@ export default function Navbar() {
         {/* LOGO */}
         <Link
           href="/"
-          aria-label="URSO INSTAL"
+          aria-label="URSO INSTAL - Strona główna"
           onClick={() => setMobileOpen(false)}
           className="flex shrink-0 items-center"
         >
@@ -119,15 +144,20 @@ export default function Navbar() {
         </Link>
 
         {/* DESKTOP NAVIGATION */}
-        <div className="hidden min-w-0 flex-1 items-center justify-center gap-6 xl:flex 2xl:gap-9">
+        <div className="hidden min-w-0 flex-1 items-center justify-center gap-5 xl:flex 2xl:gap-7">
           {navigation.map((item) => (
             <Link
               key={item.key}
               href={item.href}
-              className="group relative shrink-0 whitespace-nowrap py-3 text-[12px] font-medium tracking-[0.015em] text-[#566168] transition-colors duration-200 hover:text-[#52758a] 2xl:text-[13px] dark:text-[#b5c0c5] dark:hover:text-[#a9c5d5]"
+              aria-current={isActive(item.href) ? "page" : undefined}
+              className={desktopLinkClass(item.href)}
             >
               {t[item.key]}
-              <span className="absolute bottom-1 left-0 h-px w-0 bg-[#66879a] transition-all duration-300 group-hover:w-full dark:bg-[#a9c5d5]" />
+              <span
+                className={`absolute bottom-1 left-0 h-[2px] bg-[#66879a] transition-all duration-300 dark:bg-[#a9c5d5] ${
+                  isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              />
             </Link>
           ))}
         </div>
@@ -138,7 +168,12 @@ export default function Navbar() {
           {/* CERTIFICATE */}
           <Link
             href="/certyfikat-iso"
-            className="group flex items-center gap-2.5 px-2 py-2 text-[#58656c] transition-colors hover:text-[#52758a] dark:text-[#b5c0c5] dark:hover:text-[#a9c5d5]"
+            aria-current={isActive("/certyfikat-iso") ? "page" : undefined}
+            className={`group flex items-center gap-2.5 px-2 py-2 transition-colors ${
+              isActive("/certyfikat-iso")
+                ? "text-[#496a7d] dark:text-[#c0d8e5]"
+                : "text-[#58656c] hover:text-[#52758a] dark:text-[#b5c0c5] dark:hover:text-[#a9c5d5]"
+            }`}
           >
             <Award
               size={19}
@@ -227,7 +262,12 @@ export default function Navbar() {
           {/* CONTACT */}
           <Link
             href="/kontakt"
-            className="group ml-1 flex h-10 items-center gap-2 bg-[#496a7d] px-5 text-[11px] font-semibold uppercase tracking-[0.09em] text-white transition-colors duration-200 hover:bg-[#38586b] dark:bg-[#587d91] dark:hover:bg-[#668da2]"
+            aria-current={isActive("/kontakt") ? "page" : undefined}
+            className={`group ml-1 flex h-10 items-center gap-2 px-5 text-[11px] font-semibold uppercase tracking-[0.09em] text-white transition-colors duration-200 ${
+              isActive("/kontakt")
+                ? "bg-[#38586b] dark:bg-[#668da2]"
+                : "bg-[#496a7d] hover:bg-[#38586b] dark:bg-[#587d91] dark:hover:bg-[#668da2]"
+            }`}
           >
             {t.contact}
             <ArrowUpRight
@@ -258,21 +298,29 @@ export default function Navbar() {
               <Link
                 key={item.key}
                 href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-between gap-3 border-b border-[#e8eae8] py-4 text-sm font-medium text-[#46535a] transition-colors hover:text-[#52758a] dark:border-[#343d42] dark:text-[#dce2e5] dark:hover:text-[#a9c5d5]"
+                className={mobileLinkClass(item.href)}
               >
                 <span>{t[item.key]}</span>
-                <ArrowUpRight
-                  size={15}
-                  className="text-[#82939c]"
-                />
+                {isActive(item.href) ? (
+                  <Check size={16} className="text-[#66879a]" />
+                ) : (
+                  <ArrowUpRight size={15} className="text-[#82939c]" />
+                )}
               </Link>
             ))}
 
+            {/* CERTIFICATE */}
             <Link
               href="/certyfikat-iso"
+              aria-current={isActive("/certyfikat-iso") ? "page" : undefined}
               onClick={() => setMobileOpen(false)}
-              className="mt-4 flex items-center justify-between border border-[#e0e3e2] px-4 py-4 text-sm font-semibold text-[#46535a] dark:border-[#3b464c] dark:text-[#dce2e5]"
+              className={`mt-4 flex items-center justify-between border px-4 py-4 text-sm font-semibold ${
+                isActive("/certyfikat-iso")
+                  ? "border-[#66879a] bg-[#eef2f3] text-[#496a7d] dark:bg-[#26343b] dark:text-[#c0d8e5]"
+                  : "border-[#e0e3e2] text-[#46535a] dark:border-[#3b464c] dark:text-[#dce2e5]"
+              }`}
             >
               <span>
                 {t.certificate}
@@ -283,10 +331,16 @@ export default function Navbar() {
               <Award size={19} className="text-[#66879a]" />
             </Link>
 
+            {/* CONTACT */}
             <Link
               href="/kontakt"
+              aria-current={isActive("/kontakt") ? "page" : undefined}
               onClick={() => setMobileOpen(false)}
-              className="mt-3 flex items-center justify-center gap-2 bg-[#496a7d] px-4 py-3.5 text-xs font-semibold uppercase tracking-[0.1em] text-white"
+              className={`mt-3 flex items-center justify-center gap-2 px-4 py-3.5 text-xs font-semibold uppercase tracking-[0.1em] text-white ${
+                isActive("/kontakt")
+                  ? "bg-[#38586b]"
+                  : "bg-[#496a7d]"
+              }`}
             >
               {t.contact}
               <ArrowUpRight size={15} />

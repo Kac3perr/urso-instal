@@ -19,9 +19,9 @@ import {
 } from "lucide-react";
 import { useLocale } from "../components/providers/Providers";
 
-import heroRozdzielnica from "../../public/images/hero-rozdzielnica.jpg";
-import kameraTermowizyjna from "../../public/images/kamera-termowizyjna.png";
-import about from "../../public/images/about.jpeg";
+import heroRozdzielnica from "../../public/images/optimized/hero-rozdzielnica.webp";
+import kameraTermowizyjna from "../../public/images/optimized/kamera-termowizyjna.webp";
+import about from "../../public/images/optimized/about.webp";
 const content = {
   pl: {
     eyebrow: "URSO INSTAL / O FIRMIE",
