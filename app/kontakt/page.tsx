@@ -7,8 +7,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   Building2,
-  Check,
-  ClipboardList,
   Mail,
   MapPin,
   Phone,
@@ -26,7 +24,7 @@ const translations = {
       "Potrzebujesz inspekcji termowizyjnej, pomiarów elektrycznych lub wsparcia w zakresie automatyki przemysłowej? Opisz nam swoje potrzeby. Ustalimy odpowiedni zakres prac.",
     formTitle: "Wyślij zapytanie",
     formDescription:
-      "Wypełnij formularz, a przygotujemy Twoje zapytanie do wysłania.",
+      "Wypełnij formularz, a Twoje zapytanie trafi bezpośrednio do URSO INSTAL.",
     company: "Nazwa firmy / zakładu",
     companyPlaceholder: "Nazwa przedsiębiorstwa",
     name: "Imię i nazwisko",
@@ -47,11 +45,12 @@ const translations = {
     message: "Opis zapytania",
     messagePlaceholder:
       "Opisz krótko obiekt, zakres prac lub problem, który chcesz skonsultować...",
-    submit: "Przygotuj zapytanie",
+    submit: "Wyślij zapytanie",
+    sending: "Wysyłanie...",
+    success: "Dziękujemy. Wiadomość została wysłana.",
+    sendError: "Nie udało się wysłać wiadomości. Spróbuj ponownie za chwilę.",
     privacy:
-      "Dane z formularza zostaną wykorzystane wyłącznie do przygotowania wiadomości e-mail.",
-    missingEmail:
-      "Formularz wymaga uzupełnienia adresu e-mail firmy. Możesz skontaktować się z nami bezpośrednio po uzupełnieniu danych kontaktowych.",
+      "Dane z formularza zostaną przesłane bezpośrednio do URSO INSTAL w celu obsługi zapytania.",
     contactLabel: "Dane kontaktowe",
     contactTitle: "URSO INSTAL – Wojciech Jochemczyk",
     contactDescription:
@@ -91,8 +90,8 @@ const translations = {
       "Realizujemy usługi dla zakładów produkcyjnych i obiektów przemysłowych. Zakres i termin prac ustalamy indywidualnie.",
     back: "Wróć do strony głównej",
     footer: "URSO INSTAL • Wojciech Jochemczyk",
-    required: "To pole jest wymagane.",
   },
+
   en: {
     eyebrow: "Contact • URSO INSTAL",
     title: "Let's discuss the needs of your facility.",
@@ -100,7 +99,7 @@ const translations = {
       "Need a thermal inspection, electrical measurements or industrial automation support? Tell us what you need and we will establish the appropriate scope of work.",
     formTitle: "Send an enquiry",
     formDescription:
-      "Complete the form to prepare your enquiry for sending.",
+      "Complete the form and your enquiry will be sent directly to URSO INSTAL.",
     company: "Company / facility name",
     companyPlaceholder: "Company name",
     name: "Full name",
@@ -121,11 +120,12 @@ const translations = {
     message: "Enquiry details",
     messagePlaceholder:
       "Briefly describe the facility, scope of work or issue you would like to discuss...",
-    submit: "Prepare enquiry",
+    submit: "Send enquiry",
+    sending: "Sending...",
+    success: "Thank you. Your message has been sent.",
+    sendError: "Your message could not be sent. Please try again shortly.",
     privacy:
-      "The form data will only be used to prepare an email message.",
-    missingEmail:
-      "The company's email address needs to be configured before this form can send enquiries. You can complete the contact details in the page configuration.",
+      "Your form details will be sent directly to URSO INSTAL to handle your enquiry.",
     contactLabel: "Contact details",
     contactTitle: "URSO INSTAL – Wojciech Jochemczyk",
     contactDescription:
@@ -165,8 +165,8 @@ const translations = {
       "We provide services for manufacturing facilities and industrial sites. The scope and timing are agreed individually.",
     back: "Back to homepage",
     footer: "URSO INSTAL • Wojciech Jochemczyk",
-    required: "This field is required.",
   },
+
   de: {
     eyebrow: "Kontakt • URSO INSTAL",
     title: "Sprechen wir über die Anforderungen Ihres Betriebs.",
@@ -174,7 +174,7 @@ const translations = {
       "Benötigen Sie eine thermografische Inspektion, elektrische Messungen oder Unterstützung im Bereich Industrieautomation? Beschreiben Sie Ihren Bedarf. Wir stimmen den Leistungsumfang gemeinsam ab.",
     formTitle: "Anfrage senden",
     formDescription:
-      "Füllen Sie das Formular aus, um Ihre Anfrage vorzubereiten.",
+      "Füllen Sie das Formular aus. Ihre Anfrage wird direkt an URSO INSTAL gesendet.",
     company: "Firmen- / Betriebsname",
     companyPlaceholder: "Name des Unternehmens",
     name: "Vor- und Nachname",
@@ -195,11 +195,13 @@ const translations = {
     message: "Beschreibung der Anfrage",
     messagePlaceholder:
       "Beschreiben Sie kurz das Objekt, den Leistungsumfang oder das Problem...",
-    submit: "Anfrage vorbereiten",
+    submit: "Anfrage senden",
+    sending: "Wird gesendet...",
+    success: "Vielen Dank. Ihre Nachricht wurde gesendet.",
+    sendError:
+      "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.",
     privacy:
-      "Die Formulardaten werden ausschließlich zur Vorbereitung einer E-Mail verwendet.",
-    missingEmail:
-      "Die Firmen-E-Mail-Adresse muss konfiguriert werden, bevor Anfragen versendet werden können.",
+      "Ihre Formulardaten werden direkt an URSO INSTAL zur Bearbeitung Ihrer Anfrage gesendet.",
     contactLabel: "Kontaktdaten",
     contactTitle: "URSO INSTAL – Wojciech Jochemczyk",
     contactDescription:
@@ -239,12 +241,12 @@ const translations = {
       "Wir bieten Dienstleistungen für Produktionsbetriebe und Industrieanlagen an. Umfang und Termin werden individuell vereinbart.",
     back: "Zurück zur Startseite",
     footer: "URSO INSTAL • Wojciech Jochemczyk",
-    required: "Dieses Feld ist erforderlich.",
   },
 };
 
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "";
 const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "";
+const web3FormsAccessKey = "3baa4f66-837f-4107-a52c-a7b24e778125";
 
 export default function KontaktPage() {
   const { locale } = useLocale();
@@ -257,30 +259,61 @@ export default function KontaktPage() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [notice, setNotice] = useState("");
+  const [isSending, setIsSending] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (isSending) return;
+
     setNotice("");
+    setIsSuccess(false);
+    setIsSending(true);
 
-    if (!contactEmail) {
-      setNotice(t.missingEmail);
-      return;
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: web3FormsAccessKey,
+          subject: `Zapytanie URSO INSTAL – ${subject}`,
+          from_name: `URSO INSTAL – ${name}`,
+          company,
+          name,
+          email,
+          replyto: email,
+          phone,
+          enquiry_type: subject,
+          message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error("Web3Forms submission failed");
+      }
+
+      setNotice(t.success);
+      setIsSuccess(true);
+
+      setCompany("");
+      setName("");
+      setEmail("");
+      setPhone("");
+      setSubject("");
+      setMessage("");
+    } catch (error) {
+      console.error("Web3Forms error:", error);
+      setNotice(t.sendError);
+      setIsSuccess(false);
+    } finally {
+      setIsSending(false);
     }
-
-    const mailSubject = encodeURIComponent(
-      `Zapytanie URSO INSTAL – ${subject}`,
-    );
-
-    const mailBody = encodeURIComponent(
-      `Firma / zakład: ${company}\n` +
-        `Osoba kontaktowa: ${name}\n` +
-        `E-mail: ${email}\n` +
-        `Telefon: ${phone}\n` +
-        `Cel zgłoszenia: ${subject}\n\n` +
-        `Opis:\n${message}`,
-    );
-
-    window.location.href = `mailto:${contactEmail}?subject=${mailSubject}&body=${mailBody}`;
   };
 
   return (
@@ -417,8 +450,13 @@ export default function KontaktPage() {
 
               {notice && (
                 <p
-                  role="alert"
-                  className="border border-[#c58b50]/40 bg-[#c58b50]/10 p-4 text-sm leading-6 text-[#9b682f] dark:text-[#e2b27e]"
+                  role="status"
+                  aria-live="polite"
+                  className={`border p-4 text-sm leading-6 ${
+                    isSuccess
+                      ? "border-emerald-600/30 bg-emerald-600/10 text-emerald-700 dark:text-emerald-300"
+                      : "border-[#c58b50]/40 bg-[#c58b50]/10 text-[#9b682f] dark:text-[#e2b27e]"
+                  }`}
                 >
                   {notice}
                 </p>
@@ -431,9 +469,10 @@ export default function KontaktPage() {
 
                 <button
                   type="submit"
-                  className="group inline-flex min-h-14 shrink-0 items-center justify-center gap-4 bg-[#243746] px-7 text-sm font-medium text-white transition-colors hover:bg-[#354f62] dark:bg-[#dce5eb] dark:text-[#151a1e] dark:hover:bg-white"
+                  disabled={isSending}
+                  className="group inline-flex min-h-14 shrink-0 items-center justify-center gap-4 bg-[#243746] px-7 text-sm font-medium text-white transition-colors hover:bg-[#354f62] disabled:cursor-wait disabled:opacity-60 dark:bg-[#dce5eb] dark:text-[#151a1e] dark:hover:bg-white"
                 >
-                  {t.submit}
+                  {isSending ? t.sending : t.submit}
                   <Send
                     size={16}
                     className="transition-transform group-hover:translate-x-1"
@@ -474,7 +513,9 @@ export default function KontaktPage() {
                         {contactPhone}
                       </a>
                     ) : (
-                      <p className="mt-1 text-sm text-white/60">Do uzupełnienia</p>
+                      <p className="mt-1 text-sm text-white/60">
+                        Do uzupełnienia
+                      </p>
                     )}
                   </div>
                 </div>
@@ -494,7 +535,9 @@ export default function KontaktPage() {
                         {contactEmail}
                       </a>
                     ) : (
-                      <p className="mt-1 text-sm text-white/60">Do uzupełnienia</p>
+                      <p className="mt-1 text-sm text-white/60">
+                        Do uzupełnienia
+                      </p>
                     )}
                   </div>
                 </div>
