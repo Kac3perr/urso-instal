@@ -456,15 +456,15 @@ export default function ThermowizjaPage() {
             </div>
 
             {/* DOWNLOAD SAMPLE PDF */}
-            <a
-              href={assetPath("/raport-termowizyjny.pdf")}
-              download="raport-termowizyjny.pdf"
-              className="mt-5 inline-flex min-h-12 items-center gap-3 border border-white/35 bg-white/10 px-5 py-3 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:border-white hover:bg-white/20"
-            >
-              <FileCheck2 size={19} />
-              {t.downloadReport}
-              <ArrowUpRight size={16} />
-            </a>
+         <a
+href={assetPath("/raport-termowizyjny.pdf")}
+  download="raport-termowizyjny.pdf"
+  className="mt-5 inline-flex min-h-12 items-center gap-3 border border-white/35 bg-white/10 px-5 py-3 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:border-white hover:bg-white/20"
+>
+  <FileCheck2 size={19} />
+  {t.downloadReport}
+  <ArrowUpRight size={16} />
+</a>
           </div>
         </div>
       </section>
