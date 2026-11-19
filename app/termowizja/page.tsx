@@ -20,9 +20,9 @@ import {
   Zap,
 } from "lucide-react";
 import { useLocale } from "../components/providers/Providers";
+import { assetPath } from "../lib/asset";
 
 import kameraTermowizyjna from "../../public/images/optimized/kamera-termowizyjna.webp";
-
 import termo1 from "../../public/images/optimized/termo1.webp";
 import termo2 from "../../public/images/optimized/termo2.webp";
 import termo3 from "../../public/images/optimized/termo3.webp";
@@ -36,6 +36,7 @@ const content = {
       "Profesjonalne inspekcje termowizyjne instalacji elektrycznych i urządzeń przemysłowych. Szczegółowa dokumentacja, identyfikacja zagrożeń i raporty przygotowane z myślą o wymaganiach ubezpieczycieli oraz działów Utrzymania Ruchu.",
     primaryCta: "Zamów inspekcję termowizyjną",
     secondaryCta: "Poznaj zakres badań",
+    downloadReport: "Pobierz przykładowy raport PDF",
     certificationTitle: "Certyfikacja i bezpieczeństwo dokumentacji",
     certificationIntro:
       "Prawidłowo wykonane badanie termowizyjne wymaga odpowiedniej metodologii, doświadczenia i znajomości warunków pracy diagnozowanych urządzeń.",
@@ -61,7 +62,7 @@ const content = {
         icon: Zap,
       },
     ],
-    scopeEyebrow: "DIAGNOSTYKA RADIOmetryczna",
+    scopeEyebrow: "DIAGNOSTYKA RADIOMETRYCZNA",
     scopeTitle: "Kompleksowe inspekcje termowizyjne",
     scopeDescription:
       "Badania pomagają identyfikować nieprawidłowości termiczne, ograniczać ryzyko awarii oraz wspierać działania prewencyjne w zakładach przemysłowych.",
@@ -135,7 +136,8 @@ const content = {
       },
     ],
     contactEyebrow: "KONTAKT / URSO INSTAL",
-    contactTitle: "Zamów inspekcję termowizyjną lub skonsultuj wymogi swojej polisy.",
+    contactTitle:
+      "Zamów inspekcję termowizyjną lub skonsultuj wymogi swojej polisy.",
     contactDescription:
       "Skontaktuj się z nami, aby omówić zakres badania, wymagania dokumentacyjne lub potrzeby techniczne Twojego zakładu.",
     company: "URSO INSTAL – Marcin Zdybek",
@@ -157,6 +159,7 @@ const content = {
       "Professional thermographic inspections of electrical installations and industrial equipment. Detailed documentation, identification of risks and reports prepared with the needs of insurers and maintenance departments in mind.",
     primaryCta: "Order a thermographic inspection",
     secondaryCta: "Explore inspection scope",
+    downloadReport: "Download sample report PDF",
     certificationTitle: "Certification and documentation reliability",
     certificationIntro:
       "A proper thermographic inspection requires the right methodology, experience and knowledge of the operating conditions of the equipment being diagnosed.",
@@ -279,6 +282,7 @@ const content = {
       "Professionelle thermografische Inspektionen elektrischer Anlagen und Industrieanlagen. Detaillierte Dokumentation, Erkennung von Risiken und Berichte für Versicherer und Instandhaltungsabteilungen.",
     primaryCta: "Thermografische Inspektion bestellen",
     secondaryCta: "Prüfungsumfang kennenlernen",
+    downloadReport: "Beispielbericht als PDF herunterladen",
     certificationTitle: "Zertifizierung und zuverlässige Dokumentation",
     certificationIntro:
       "Eine fachgerechte thermografische Prüfung erfordert die richtige Methodik, Erfahrung und Kenntnisse der Betriebsbedingungen der untersuchten Anlagen.",
@@ -450,6 +454,17 @@ export default function ThermowizjaPage() {
                 <ArrowDown size={18} />
               </Link>
             </div>
+
+            {/* DOWNLOAD SAMPLE PDF */}
+            <a
+              href={assetPath("/raport-termowizyjny.pdf")}
+              download="raport-termowizyjny.pdf"
+              className="mt-5 inline-flex min-h-12 items-center gap-3 border border-white/35 bg-white/10 px-5 py-3 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:border-white hover:bg-white/20"
+            >
+              <FileCheck2 size={19} />
+              {t.downloadReport}
+              <ArrowUpRight size={16} />
+            </a>
           </div>
         </div>
       </section>

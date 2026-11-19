@@ -421,14 +421,7 @@ export default function CertyfikatIsoPage() {
                 />
               </Link>
 
-              <a
-                href={reportPdf}
-                download="raport-termowizyjny.pdf"
-                className="inline-flex min-h-14 items-center justify-center gap-3 border border-black/15 px-7 text-sm font-medium transition-colors hover:bg-black/[0.04] dark:border-white/15 dark:hover:bg-white/[0.05]"
-              >
-                {t.secondary}
-                <FileText size={16} />
-              </a>
+              
             </div>
           </div>
 
@@ -574,29 +567,7 @@ export default function CertyfikatIsoPage() {
               );
             })}
           </div>
-
-          {/* POBIERANIE PRZYKŁADOWEGO RAPORTU */}
-          <a
-            href={reportPdf}
-            download="raport-termowizyjny.pdf"
-            className="group mt-8 flex flex-col gap-5 border border-black/10 bg-white p-7 transition-colors hover:border-[#55758b]/50 dark:border-white/10 dark:bg-[#101316] sm:flex-row sm:items-center sm:p-9"
-          >
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center bg-[#eaf0f3] text-[#45677e] dark:bg-[#26343e] dark:text-[#c2d4df]">
-              <FileText size={26} strokeWidth={1.4} />
-            </div>
-
-            <div className="flex-1">
-              <h3 className="font-semibold">{t.downloadTitle}</h3>
-              <p className="mt-2 text-sm leading-7 text-[#697078] dark:text-[#a6afb7]">
-                {t.downloadDescription}
-              </p>
-            </div>
-
-            <ArrowUpRight
-              size={20}
-              className="shrink-0 text-[#55758b] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            />
-          </a>
+        
         </div>
       </section>
 
