@@ -90,33 +90,6 @@ export default function Navbar() {
     setMounted(true);
   }, []);
 
-  // BLOKADA PRZEWIJANIA STRONY POD MENU MOBILNYM
-  useEffect(() => {
-    if (!mobileOpen) return;
-
-    const html = document.documentElement;
-    const body = document.body;
-
-    const previousHtmlOverflow = html.style.overflow;
-    const previousBodyOverflow = body.style.overflow;
-    const previousOverscroll = html.style.overscrollBehavior;
-
-    html.style.overflow = "hidden";
-    body.style.overflow = "hidden";
-    html.style.overscrollBehavior = "none";
-
-    return () => {
-      html.style.overflow = previousHtmlOverflow;
-      body.style.overflow = previousBodyOverflow;
-      html.style.overscrollBehavior = previousOverscroll;
-    };
-  }, [mobileOpen]);
-
-  // ZAMYKANIE MENU PO PRZEJŚCIU NA INNĄ PODSTRONĘ
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
-
   const t = translations[locale];
   const isDark = mounted && theme === "dark";
 
@@ -152,6 +125,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#e4e5e3] bg-[#fafaf8]/95 text-[#293238] backdrop-blur-xl transition-colors duration-300 dark:border-[#343d42] dark:bg-[#1b2226]/95 dark:text-[#edf0f1]">
       <nav className="mx-auto flex min-h-[82px] w-full max-w-[1920px] items-center justify-between gap-5 px-5 sm:px-8 lg:px-10 2xl:px-14">
+
         {/* LOGO */}
         <Link
           href="/"
@@ -190,6 +164,7 @@ export default function Navbar() {
 
         {/* DESKTOP ACTIONS */}
         <div className="hidden shrink-0 items-center gap-3 xl:flex">
+
           {/* CERTIFICATE */}
           <Link
             href="/certyfikat-iso"
@@ -316,8 +291,9 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="fixed inset-x-0 top-[82px] z-50 max-h-[calc(100dvh-82px)] overflow-y-auto overscroll-contain border-b border-[#e4e5e3] bg-[#fafaf8] shadow-xl xl:hidden dark:border-[#343d42] dark:bg-[#1b2226]">
+        <div className="absolute left-0 top-full w-full border-b border-[#e4e5e3] bg-[#fafaf8] shadow-xl xl:hidden dark:border-[#343d42] dark:bg-[#1b2226]">
           <div className="mx-auto flex max-w-[1500px] flex-col px-5 py-4 sm:px-8">
+
             {navigation.map((item) => (
               <Link
                 key={item.key}
@@ -361,7 +337,9 @@ export default function Navbar() {
               aria-current={isActive("/kontakt") ? "page" : undefined}
               onClick={() => setMobileOpen(false)}
               className={`mt-3 flex items-center justify-center gap-2 px-4 py-3.5 text-xs font-semibold uppercase tracking-[0.1em] text-white ${
-                isActive("/kontakt") ? "bg-[#38586b]" : "bg-[#496a7d]"
+                isActive("/kontakt")
+                  ? "bg-[#38586b]"
+                  : "bg-[#496a7d]"
               }`}
             >
               {t.contact}
