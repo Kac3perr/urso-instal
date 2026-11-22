@@ -31,7 +31,7 @@ const content = {
   pl: {
     eyebrow: "URSO INSTAL / TERMOWIZJA PRZEMYSŁOWA",
     badge: "ISO 18436-7 Level 1 Certified Thermographer",
-    heroTitle: "Diagnostyka termowizyjna, której możesz zaufać.",
+   heroTitle: "Termowizja przemysłowa i diagnostyka instalacji elektrycznych",
     heroDescription:
       "Profesjonalne inspekcje termowizyjne instalacji elektrycznych i urządzeń przemysłowych. Szczegółowa dokumentacja, identyfikacja zagrożeń i raporty przygotowane z myślą o wymaganiach ubezpieczycieli oraz działów Utrzymania Ruchu.",
     primaryCta: "Zamów inspekcję termowizyjną",

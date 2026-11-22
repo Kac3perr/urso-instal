@@ -12,7 +12,7 @@ import heroRozdzielnica from "../../../public/images/optimized/hero-rozdzielnica
 const translations = {
   pl: {
     eyebrow: "URSO INSTAL / OBSZARY DZIAŁALNOŚCI",
-    heading: "Kompleksowe rozwiązania\ndla przemysłu.",
+    heading: "Termowizja i automatyka przemysłowa dla firm.",
     description:
       "Wybierz obszar, którego potrzebujesz. Zapewniamy specjalistyczne wsparcie w diagnostyce termicznej, elektryce i automatyce przemysłowej.",
     services: [

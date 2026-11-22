@@ -9,7 +9,7 @@ import Providers from "./components/providers/Providers";
 import Navbar from "./components/layout/Navbar";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ursoinstal.com"),
+  metadataBase: new URL("https://ursoinstal.pl"),
 
   title: {
     default: "URSO INSTAL | Termowizja i Automatyka Przemysłowa",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "URSO INSTAL | Termowizja i Automatyka Przemysłowa",
     description:
       "Diagnostyka termowizyjna i rozwiązania dla przemysłu.",
-    url: "https://ursoinstal.com",
+    url: "https://ursoinstal.pl",
     siteName: "URSO INSTAL",
     locale: "pl_PL",
     type: "website",
