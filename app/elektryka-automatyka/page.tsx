@@ -215,7 +215,7 @@ const content = {
     contactTitle: "Let's discuss your installation.",
     contactDescription:
       "Tell us about your planned prefabrication, machine modernisation or required measurements. We will discuss the scope of work and possible solutions.",
-    company: "URSO INSTAL – Wojciech Jochemczyk",
+    company: "URSO INSTAL – Marcin Zdybek",
     qualification: "SEP G1 E+D qualifications",
     area: "Service area: Silesia / Throughout Poland",
     nip: "Tax ID: 6462771321",
@@ -314,7 +314,7 @@ const content = {
     contactTitle: "Sprechen wir über Ihre Anlage.",
     contactDescription:
       "Erzählen Sie uns von Ihrer geplanten Schaltschrankfertigung, Maschinenmodernisierung oder den benötigten Messungen. Wir besprechen den Leistungsumfang und mögliche Lösungen.",
-    company: "URSO INSTAL – Wojciech Jochemczyk",
+    company: "URSO INSTAL – Marcin Zdybek",
     qualification: "SEP-Berechtigungen G1 E+D",
     area: "Einsatzgebiet: Schlesien / Ganz Polen",
     nip: "Steuernummer: 6462771321",

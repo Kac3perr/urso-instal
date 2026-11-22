@@ -28,7 +28,7 @@ const content = {
     badge: "ELEKTRYKA / AUTOMATYKA / DIAGNOSTYKA",
     heroTitle: "Technika przemysłowa. Diagnostyka. Bezpieczeństwo.",
     heroDescription:
-      "URSO INSTAL to działalność Wojciecha Jochemczyka, łącząca diagnostykę termowizyjną z usługami elektroinstalacyjnymi i automatyką przemysłową.",
+      "URSO INSTAL to działalność Marcina Zdybka, łącząca diagnostykę termowizyjną z usługami elektroinstalacyjnymi i automatyką przemysłową.",
     primary: "Poznaj nasze usługi",
     secondary: "Skontaktuj się z nami",
     introEyebrow: "KIM JESTEŚMY",
@@ -123,7 +123,7 @@ const content = {
     badge: "ELECTRICAL ENGINEERING / AUTOMATION / DIAGNOSTICS",
     heroTitle: "Industrial technology. Diagnostics. Safety.",
     heroDescription:
-      "URSO INSTAL is the business of Wojciech Jochemczyk, combining thermographic diagnostics with electrical installation services and industrial automation.",
+      "URSO INSTAL is the business of Marcin Zdybek, combining thermographic diagnostics with electrical installation services and industrial automation.",
     primary: "Explore our services",
     secondary: "Contact us",
     introEyebrow: "WHO WE ARE",
@@ -218,7 +218,7 @@ const content = {
     badge: "ELEKTROTECHNIK / AUTOMATISIERUNG / DIAGNOSTIK",
     heroTitle: "Industrietechnik. Diagnostik. Sicherheit.",
     heroDescription:
-      "URSO INSTAL ist das Unternehmen von Wojciech Jochemczyk und verbindet thermografische Diagnostik mit Elektroinstallationen und Industrieautomation.",
+      "URSO INSTAL ist das Unternehmen von Marcin Zdybek und verbindet thermografische Diagnostik mit Elektroinstallationen und Industrieautomation.",
     primary: "Leistungen kennenlernen",
     secondary: "Kontakt aufnehmen",
     introEyebrow: "WER WIR SIND",

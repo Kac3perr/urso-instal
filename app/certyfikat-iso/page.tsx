@@ -32,7 +32,7 @@ const translations = {
     certificateStandard: "ISO 18436-7",
     certificateDescription:
       "Certyfikacja w zakresie monitorowania i diagnostyki termograficznej.",
-    certificateNote: "Wojciech Jochemczyk • URSO INSTAL",
+    certificateNote: "Marcin Zdybek • URSO INSTAL",
     introLabel: "Kompetencje i metodologia",
     introTitle: "Termogram to dopiero początek analizy.",
     introDescription:
@@ -150,7 +150,7 @@ const translations = {
     certificateStandard: "ISO 18436-7",
     certificateDescription:
       "Certification in the field of thermographic monitoring and diagnostics.",
-    certificateNote: "Wojciech Jochemczyk • URSO INSTAL",
+    certificateNote: "Marcin Zdybek • URSO INSTAL",
     introLabel: "Expertise and methodology",
     introTitle: "A thermogram is only the beginning of the analysis.",
     introDescription:
@@ -268,7 +268,7 @@ const translations = {
     certificateStandard: "ISO 18436-7",
     certificateDescription:
       "Zertifizierung im Bereich thermografischer Überwachung und Diagnostik.",
-    certificateNote: "Wojciech Jochemczyk • URSO INSTAL",
+    certificateNote: "Marcin Zdybek • URSO INSTAL",
     introLabel: "Kompetenz und Methodik",
     introTitle: "Ein Thermogramm ist erst der Anfang der Analyse.",
     introDescription:
