@@ -10,6 +10,11 @@ import Navbar from "./components/layout/Navbar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ursoinstal.pl"),
+  icons: {
+  icon: "/icon.png",
+  shortcut: "/icon.png",
+  apple: "/icon.png",
+},
 
   title: {
     default: "URSO INSTAL | Termowizja i Automatyka Przemysłowa",
