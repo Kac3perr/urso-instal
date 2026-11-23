@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "URSO INSTAL |Termowizja przemysłowa i badania rozdzielni",
+  title: "URSO INSTAL | Termowizja przemysłowa i badania rozdzielni",
   description:
     "Profesjonalne badania termowizyjne rozdzielnic, szaf sterowniczych i maszyn przemysłowych. Diagnostyka usterek i raporty na Śląsku oraz w całej Polsce.",
   alternates: {
