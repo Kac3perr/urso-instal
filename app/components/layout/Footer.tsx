@@ -3,13 +3,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import lightLogo from "../../../public/images/logo.png";
-import darkLogo from "../../../public/images/logo2.png";
+import lightLogo from "../../../public/images/logo2.png";
+
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import {
   ArrowUpRight,
-  Award,
   Mail,
   MapPin,
   Phone,
@@ -102,7 +101,7 @@ export default function Footer() {
 
   const t = translations[locale];
   const isDark = mounted && theme === "dark";
-  const logo = isDark ? darkLogo : lightLogo;
+
 
   const navigation = [
     { label: t.about, href: "/o-firmie" },
@@ -133,7 +132,7 @@ export default function Footer() {
               className="inline-flex"
             >
               <Image
-                src={logo}
+                src={lightLogo}
                 alt="URSO INSTAL"
                 width={180}
                 height={60}

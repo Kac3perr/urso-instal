@@ -3,17 +3,22 @@ import type { Metadata } from "next";
 import ServiceSelector from "./components/sections/ServiceSelector";
 
 export const metadata: Metadata = {
-  title: "URSO INSTAL – Termowizja i Automatyka Przemysłowa Śląsk",
+  title: "URSO INSTAL – Termowizja Przemysłowa i Automatyka Śląsk",
+
   description:
-    "URSO INSTAL oferuje termowizję przemysłową, diagnostykę instalacji elektrycznych, prefabrykację szaf sterowniczych i automatykę przemysłową. Obsługujemy Śląsk i całą Polskę.",
+    "URSO INSTAL – badania termowizyjne rozdzielnic, diagnostyka instalacji elektrycznych, prefabrykacja szaf sterowniczych i automatyka przemysłowa. Usługi dla firm na Śląsku i w całej Polsce.",
+
   alternates: {
     canonical: "/",
   },
+
   openGraph: {
-    title: "URSO INSTAL – Termowizja i Automatyka Przemysłowa",
+    title: "URSO INSTAL – Termowizja Przemysłowa i Automatyka Śląsk",
     description:
-      "Diagnostyka termowizyjna, elektryka i automatyka przemysłowa. Specjalistyczne usługi dla zakładów przemysłowych.",
+      "Badania termowizyjne rozdzielnic, diagnostyka instalacji elektrycznych, prefabrykacja szaf sterowniczych i automatyka przemysłowa dla przemysłu.",
     url: "/",
+    siteName: "URSO INSTAL",
+    locale: "pl_PL",
     type: "website",
   },
 };

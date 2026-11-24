@@ -317,7 +317,7 @@ export default function KontaktPage() {
   };
 
   return (
-    <main className="overflow-hidden bg-white text-[#171b20] transition-colors duration-300 dark:bg-[#101316] dark:text-[#edf0f2]">
+     <div className="overflow-hidden bg-white text-[#171b20] transition-colors duration-300 dark:bg-[#101316] dark:text-[#edf0f2]">
       {/* HERO */}
       <section className="border-b border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-[1440px] px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
@@ -661,6 +661,6 @@ export default function KontaktPage() {
           {t.back}
         </Link>
       </div>
-    </main>
+    </div>
   );
 }

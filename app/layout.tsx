@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import Script from "next/script";
 import "./globals.css";
+
 import Footer from "./components/layout/Footer";
 import BackToTop from "./components/layout/BackToTop";
 import Providers from "./components/providers/Providers";
@@ -10,42 +11,58 @@ import Navbar from "./components/layout/Navbar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ursoinstal.pl"),
-  icons: {
-  icon: "/icon.png",
-  shortcut: "/icon.png",
-  apple: "/icon.png",
-},
 
   title: {
-    default: "URSO INSTAL | Termowizja i Automatyka Przemysłowa",
+    default: "URSO INSTAL | Termowizja i automatyka przemysłowa Śląsk",
     template: "%s | URSO INSTAL",
   },
 
   description:
-    "Profesjonalna diagnostyka termowizyjna, automatyka przemysłowa, prefabrykacja szaf sterowniczych i pomiary elektryczne.",
+    "URSO INSTAL oferuje termowizję przemysłową, badania rozdzielnic, diagnostykę instalacji elektrycznych, prefabrykację szaf sterowniczych i automatykę przemysłową na Śląsku oraz w całej Polsce.",
+
+  applicationName: "URSO INSTAL",
+
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 
   keywords: [
     "URSO INSTAL",
     "termowizja przemysłowa",
+    "badania termowizyjne rozdzielnic",
     "diagnostyka termowizyjna",
     "automatyka przemysłowa",
     "prefabrykacja szaf sterowniczych",
-    "pomiary SEP",
+    "pomiary elektryczne SEP",
+    "termowizja Śląsk",
   ],
 
   openGraph: {
-    title: "URSO INSTAL | Termowizja i Automatyka Przemysłowa",
+    title: "URSO INSTAL | Termowizja i automatyka przemysłowa",
     description:
-      "Diagnostyka termowizyjna i rozwiązania dla przemysłu.",
+      "Badania termowizyjne rozdzielnic, diagnostyka instalacji elektrycznych, prefabrykacja szaf sterowniczych i automatyka przemysłowa. Obsługujemy Śląsk i całą Polskę.",
     url: "https://ursoinstal.pl",
     siteName: "URSO INSTAL",
     locale: "pl_PL",
     type: "website",
   },
 
+  twitter: {
+    card: "summary",
+    title: "URSO INSTAL | Termowizja i automatyka przemysłowa",
+    description:
+      "Termowizja przemysłowa, diagnostyka instalacji elektrycznych i automatyka przemysłowa.",
+  },
+
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 };
 

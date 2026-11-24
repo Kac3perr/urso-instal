@@ -25,7 +25,7 @@ import { assetPath } from "../lib/asset";
 import kameraTermowizyjna from "../../public/images/optimized/kamera-termowizyjna.webp";
 import termo1 from "../../public/images/optimized/termo1.webp";
 import termo2 from "../../public/images/optimized/termo2.webp";
-import termo3 from "../../public/images/optimized/termo3.webp";
+
 
 const content = {
   pl: {
@@ -403,7 +403,7 @@ export default function ThermowizjaPage() {
   const t = content[locale];
 
   return (
-    <main className="bg-[#f4f4f2] text-[#202326] dark:bg-[#171b1f] dark:text-[#f2f4f5]">
+   <div className="bg-[#f4f4f2] text-[#202326] dark:bg-[#171b1f] dark:text-[#f2f4f5]">
       {/* HERO */}
       <section className="relative isolate min-h-[650px] overflow-hidden bg-[#20272d] text-white lg:min-h-[690px]">
         <Image
@@ -758,6 +758,6 @@ href={assetPath("/raport-termowizyjny.pdf")}
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

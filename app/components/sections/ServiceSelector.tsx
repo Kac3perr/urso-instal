@@ -12,26 +12,28 @@ import heroRozdzielnica from "../../../public/images/optimized/hero-rozdzielnica
 const translations = {
   pl: {
     eyebrow: "URSO INSTAL / OBSZARY DZIAŁALNOŚCI",
-    heading: "Termowizja i automatyka przemysłowa dla firm.",
+    heading: "Termowizja przemysłowa i automatyka dla firm na Śląsku.",
     description:
-      "Wybierz obszar, którego potrzebujesz. Zapewniamy specjalistyczne wsparcie w diagnostyce termicznej, elektryce i automatyce przemysłowej.",
+      "Wspieramy zakłady przemysłowe w diagnostyce termowizyjnej, badaniach rozdzielnic, prefabrykacji szaf sterowniczych oraz automatyce przemysłowej. Realizujemy usługi na Śląsku i w całej Polsce.",
     services: [
       {
         number: "01",
         title: "Termowizja przemysłowa",
         description:
-          "Certyfikowana diagnostyka termowizyjna, audyty ubezpieczeniowe i profesjonalne raporty dla przemysłu.",
+          "Badania termowizyjne rozdzielnic, instalacji elektrycznych i maszyn przemysłowych. Diagnostyka potencjalnych usterek, audyty oraz profesjonalne raporty dla firm i ubezpieczycieli.",
         label: "Poznaj usługi termowizyjne",
         image: kameraTermowizyjna,
+        imageAlt: "Kamera termowizyjna wykorzystywana do diagnostyki urządzeń przemysłowych",
         href: "/termowizja",
       },
       {
         number: "02",
         title: "Elektryka i automatyka",
         description:
-          "Prefabrykacja szaf sterowniczych, modernizacje instalacji, automatyka przemysłowa i pomiary elektryczne.",
+          "Prefabrykacja i projektowanie szaf sterowniczych, modernizacja układów automatyki przemysłowej, instalacje elektryczne oraz pomiary elektryczne.",
         label: "Poznaj ofertę elektryki i automatyki",
         image: heroRozdzielnica,
+        imageAlt: "Rozdzielnica elektryczna wykorzystywana w instalacjach przemysłowych",
         href: "/elektryka-automatyka",
       },
     ],
@@ -41,60 +43,64 @@ const translations = {
 
   en: {
     eyebrow: "URSO INSTAL / OUR SERVICES",
-    heading: "Comprehensive solutions\nfor industry.",
+    heading: "Industrial thermography and automation for businesses.",
     description:
-      "Choose the area you need. We provide specialist support in thermal diagnostics, electrical services and industrial automation.",
+      "We support industrial facilities with thermal diagnostics, switchgear inspections, control cabinet prefabrication and industrial automation. Our services are available throughout Poland.",
     services: [
       {
         number: "01",
         title: "Industrial thermography",
         description:
-          "Certified thermal diagnostics, insurance inspections and professional reports for industrial facilities.",
+          "Thermal inspections of electrical switchgear, installations and industrial machinery. Fault diagnostics, audits and professional reports for businesses and insurers.",
         label: "Explore thermography services",
         image: kameraTermowizyjna,
+        imageAlt: "Thermal imaging camera used for industrial equipment diagnostics",
         href: "/termowizja",
       },
       {
         number: "02",
         title: "Electrical engineering & automation",
         description:
-          "Control cabinet prefabrication, installation upgrades, industrial automation and electrical measurements.",
+          "Design and prefabrication of control cabinets, industrial automation upgrades, electrical installations and measurements.",
         label: "Explore electrical and automation services",
         image: heroRozdzielnica,
+        imageAlt: "Electrical switchgear used in industrial installations",
         href: "/elektryka-automatyka",
       },
     ],
     footer: "URSO INSTAL — Solutions for industry",
-    location: "Silesia / Throughout Poland",
+    location: "Poland",
   },
 
   de: {
     eyebrow: "URSO INSTAL / LEISTUNGSBEREICHE",
-    heading: "Umfassende Lösungen\nfür die Industrie.",
+    heading: "Industrielle Thermografie und Automatisierung für Unternehmen.",
     description:
-      "Wählen Sie den gewünschten Bereich. Wir bieten fachkundige Unterstützung in der thermischen Diagnostik, Elektrotechnik und Industrieautomation.",
+      "Wir unterstützen Industriebetriebe mit thermografischer Diagnostik, Schaltanlagenprüfungen, Schaltschrankbau und Industrieautomation. Unsere Dienstleistungen bieten wir in ganz Polen an.",
     services: [
       {
         number: "01",
         title: "Industrielle Thermografie",
         description:
-          "Zertifizierte thermografische Diagnostik, Versicherungsprüfungen und professionelle Berichte für Industriebetriebe.",
+          "Thermografische Prüfungen von Schaltanlagen, elektrischen Installationen und Industriemaschinen. Fehlerdiagnostik, Audits und professionelle Berichte für Unternehmen und Versicherer.",
         label: "Thermografie-Leistungen entdecken",
         image: kameraTermowizyjna,
+        imageAlt: "Wärmebildkamera zur Diagnose von Industrieanlagen",
         href: "/termowizja",
       },
       {
         number: "02",
         title: "Elektrotechnik & Automatisierung",
         description:
-          "Schaltschrankbau, Anlagenmodernisierung, Industrieautomation und elektrische Messungen.",
+          "Planung und Bau von Schaltschränken, Modernisierung industrieller Automatisierungssysteme, Elektroinstallationen und Messungen.",
         label: "Elektro- und Automatisierungsleistungen entdecken",
         image: heroRozdzielnica,
+        imageAlt: "Elektrische Schaltanlage für industrielle Installationen",
         href: "/elektryka-automatyka",
       },
     ],
     footer: "URSO INSTAL — Lösungen für die Industrie",
-    location: "Schlesien / Ganz Polen",
+    location: "Polen",
   },
 };
 
@@ -129,7 +135,7 @@ export default function ServiceSelector() {
             >
               <Image
                 src={service.image}
-                alt=""
+                alt={service.imageAlt}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"

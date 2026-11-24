@@ -10,112 +10,120 @@ import {
   Check,
   CircuitBoard,
   ClipboardCheck,
-  Factory,
   Gauge,
   Layers3,
   Settings,
-  ShieldCheck,
   Workflow,
   Zap,
 } from "lucide-react";
 import { useLocale } from "../components/providers/Providers";
 
-
 import heroRozdzielnica from "../../public/images/optimized/hero-rozdzielnica.webp";
 import auto1 from "../../public/images/optimized/auto1.webp";
 import auto2 from "../../public/images/optimized/auto2.webp";
+
 const content = {
   pl: {
     eyebrow: "URSO INSTAL / ELEKTRYKA I AUTOMATYKA",
     badge: "ELEKTROINSTALACJE / AUTOMATYKA PRZEMYSŁOWA",
-    heroTitle: "Elektryka i automatyka dla wymagającego przemysłu.",
+    heroTitle:
+      "Automatyka przemysłowa, prefabrykacja szaf sterowniczych i instalacje elektryczne.",
     heroDescription:
-      "Projektowanie i prefabrykacja szaf sterowniczych, modernizacja maszyn, systemy sterowania PLC oraz pomiary elektryczne. Kompleksowe wsparcie techniczne – od wykonania instalacji po usuwanie usterek.",
+      "Projektowanie i prefabrykacja szaf sterowniczych, modernizacja maszyn przemysłowych, układy sterowania PLC, instalacje elektryczne i pomiary SEP. Zapewniamy wsparcie techniczne dla zakładów przemysłowych na Śląsku i w całej Polsce.",
     primaryCta: "Zapytaj o realizację",
     secondaryCta: "Poznaj zakres usług",
+
     introEyebrow: "ZAKRES DZIAŁALNOŚCI",
     introTitle: "Rozwiązania techniczne dopasowane do potrzeb zakładu.",
     introDescription:
-      "Wspieramy zakłady przemysłowe w zakresie instalacji elektrycznych i automatyki. Realizujemy prace związane z budową nowych układów, modernizacją istniejących rozwiązań oraz diagnostyką i usuwaniem usterek.",
+      "Wspieramy zakłady przemysłowe w zakresie instalacji elektrycznych i automatyki. Realizujemy prace związane z budową nowych układów, modernizacją istniejących rozwiązań oraz diagnostyką i usuwaniem usterek. Obsługujemy przedsiębiorstwa na Śląsku i w innych regionach Polski.",
+
     services: [
       {
         number: "01",
         title: "Prefabrykacja szaf sterowniczych",
         description:
-          "Projektowanie i montaż nowych rozdzielnic oraz pulpitów sterujących. Przygotowanie układów elektrycznych i sterowniczych zgodnie z potrzebami instalacji.",
+          "Projektowanie i montaż szaf sterowniczych, rozdzielnic elektrycznych oraz pulpitów operatorskich. Przygotowanie układów elektrycznych i sterowniczych zgodnie z wymaganiami konkretnej instalacji.",
         icon: Layers3,
       },
       {
         number: "02",
         title: "Retrofit i modernizacja maszyn",
         description:
-          "Wymiana przestarzałych układów zasilania, integracja falowników oraz przebudowa układów sterowania maszyn.",
+          "Modernizacja maszyn przemysłowych, wymiana przestarzałych układów zasilania, integracja falowników oraz przebudowa układów sterowania.",
         icon: Settings,
       },
       {
         number: "03",
         title: "Sterowanie PLC i Safety",
         description:
-          "Modernizacja sterowania PLC oraz wdrażanie układów bezpiecznego zatrzymania maszyn i rozwiązań z zakresu Safety.",
+          "Modernizacja układów sterowania PLC oraz wdrażanie rozwiązań bezpieczeństwa maszyn, w tym układów bezpiecznego zatrzymania.",
         icon: Workflow,
       },
       {
         number: "04",
         title: "Pomiary elektryczne SEP G1 E+D",
         description:
-          "Pomiary odbiorcze i okresowe instalacji elektrycznych, obejmujące między innymi pętlę zwarcia, rezystancję izolacji, RCD i ciągłość połączeń.",
+          "Pomiary odbiorcze i okresowe instalacji elektrycznych, obejmujące między innymi impedancję pętli zwarcia, rezystancję izolacji, badania RCD i ciągłość połączeń ochronnych.",
         icon: Gauge,
       },
     ],
+
     prefabricationEyebrow: "PREFABRYKACJA / ROZDZIELNICE",
     prefabricationTitle: "Szafy sterownicze i rozdzielnice.",
     prefabricationDescription:
-      "Realizujemy prefabrykację szaf sterowniczych i pulpitów operatorskich. Zakres prac dobierany jest do funkcji urządzenia, wymagań instalacji oraz potrzeb zakładu.",
+      "Realizujemy prefabrykację szaf sterowniczych, rozdzielnic elektrycznych i pulpitów operatorskich. Zakres prac dobierany jest do funkcji urządzenia, wymagań instalacji oraz potrzeb zakładu przemysłowego.",
     prefabricationPoints: [
       "Projektowanie i przygotowanie układów sterowniczych.",
-      "Prefabrykacja szaf i rozdzielnic elektrycznych.",
-      "Montaż aparatury i elementów sterowania.",
+      "Prefabrykacja szaf sterowniczych i rozdzielnic elektrycznych.",
+      "Montaż aparatury elektrycznej i elementów sterowania.",
       "Przygotowanie rozwiązań dopasowanych do konkretnej maszyny lub instalacji.",
     ],
+
     modernizationEyebrow: "MODERNIZACJA / AUTOMATYKA",
-    modernizationTitle: "Modernizacja zamiast kosztownej wymiany całego układu.",
+    modernizationTitle:
+      "Modernizacja zamiast kosztownej wymiany całego układu.",
     modernizationDescription:
-      "Przebudowa istniejących instalacji pozwala dostosować maszyny i urządzenia do aktualnych potrzeb technologicznych. Zakres modernizacji może obejmować układy zasilania, napędy, sterowanie PLC oraz rozwiązania bezpieczeństwa.",
+      "Przebudowa istniejących instalacji pozwala dostosować maszyny i urządzenia do aktualnych potrzeb technologicznych. Zakres modernizacji może obejmować układy zasilania, napędy, sterowanie PLC oraz rozwiązania bezpieczeństwa maszyn.",
     modernizationPoints: [
       "Wymiana przestarzałych układów zasilania.",
       "Integracja falowników i modernizacja napędów.",
-      "Przebudowa sterowania PLC.",
+      "Przebudowa i modernizacja sterowania PLC.",
       "Montaż układów bezpiecznego zatrzymania Safety.",
     ],
+
     measurementsEyebrow: "POMIARY / SEP G1 E+D",
     measurementsTitle: "Pomiary elektryczne i kontrola instalacji.",
     measurementsDescription:
-      "Wykonujemy pomiary odbiorcze i okresowe instalacji elektrycznych. Wyniki pomiarów pozwalają ocenić stan instalacji i zidentyfikować nieprawidłowości wymagające dalszych działań.",
+      "Wykonujemy pomiary odbiorcze i okresowe instalacji elektrycznych. Wyniki pomiarów pozwalają ocenić stan techniczny instalacji i zidentyfikować nieprawidłowości wymagające dalszych działań.",
     measurementItems: [
       "Pomiary impedancji pętli zwarcia.",
       "Pomiary rezystancji izolacji.",
       "Badania wyłączników różnicowoprądowych RCD.",
       "Sprawdzenie ciągłości połączeń ochronnych.",
     ],
+
     repairsEyebrow: "SERWIS / USUWANIE USTEREK",
     repairsTitle: "Od wykrycia problemu do jego usunięcia.",
     repairsDescription:
-      "Zakres usług obejmuje również usuwanie usterek stwierdzonych podczas przeglądów i pomiarów. Pozwala to przejść od diagnozy do konkretnych działań technicznych.",
+      "Zakres usług obejmuje również usuwanie usterek stwierdzonych podczas przeglądów, inspekcji i pomiarów. Pozwala to przejść od diagnozy do konkretnych działań technicznych.",
     repairsPoints: [
       "Naprawa przegrzewających się połączeń.",
       "Wymiana zużytych aparatów elektrycznych.",
       "Modernizacja i uporządkowanie okablowania.",
       "Usuwanie usterek wykrytych podczas inspekcji.",
     ],
+
     thermographyEyebrow: "DIAGNOSTYKA / TERMOWIZJA",
     thermographyTitle: "Połącz automatykę z diagnostyką termiczną.",
     thermographyDescription:
-      "W ramach działalności URSO INSTAL realizujemy również inspekcje termowizyjne instalacji i urządzeń przemysłowych. Diagnostyka termiczna może wspierać identyfikację nieprawidłowości w rozdzielnicach, szafach sterowniczych i napędach.",
+      "W ramach działalności URSO INSTAL realizujemy również inspekcje termowizyjne instalacji i urządzeń przemysłowych. Diagnostyka termiczna wspiera identyfikację nieprawidłowości w rozdzielnicach, szafach sterowniczych i napędach.",
     thermographyButton: "Poznaj usługi termowizyjne",
+
     contactEyebrow: "KONTAKT / URSO INSTAL",
     contactTitle: "Porozmawiajmy o Twojej instalacji.",
     contactDescription:
-      "Opowiedz nam o planowanej prefabrykacji, modernizacji maszyny lub potrzebnych pomiarach. Omówimy zakres prac i możliwe rozwiązania.",
+      "Opowiedz nam o planowanej prefabrykacji szafy sterowniczej, modernizacji maszyny lub potrzebnych pomiarach elektrycznych. Omówimy zakres prac i możliwe rozwiązania techniczne.",
     company: "URSO INSTAL – Marcin Zdybek",
     qualification: "Uprawnienia SEP G1 E+D",
     area: "Obszar działania: Śląsk / Cała Polska",
@@ -127,75 +135,83 @@ const content = {
   en: {
     eyebrow: "URSO INSTAL / ELECTRICAL ENGINEERING & AUTOMATION",
     badge: "ELECTRICAL INSTALLATIONS / INDUSTRIAL AUTOMATION",
-    heroTitle: "Electrical engineering and automation for demanding industry.",
+    heroTitle:
+      "Industrial automation, control cabinet prefabrication and electrical installations.",
     heroDescription:
-      "Design and prefabrication of control cabinets, machine modernisation, PLC control systems and electrical measurements. Technical support from installation work to fault removal.",
+      "Design and prefabrication of control cabinets, industrial machine modernisation, PLC control systems, electrical installations and measurements. Technical support for industrial facilities throughout Poland.",
     primaryCta: "Discuss your project",
     secondaryCta: "Explore our services",
+
     introEyebrow: "OUR SERVICES",
     introTitle: "Technical solutions tailored to your facility.",
     introDescription:
-      "We support industrial facilities with electrical installations and automation. Our work includes new systems, modernisation of existing solutions, diagnostics and fault removal.",
+      "We support industrial facilities with electrical installations and automation. Our work includes new systems, modernisation of existing solutions, diagnostics and fault removal. We serve businesses throughout Poland.",
+
     services: [
       {
         number: "01",
         title: "Control cabinet prefabrication",
         description:
-          "Design and assembly of new switchboards and control panels. Preparation of electrical and control systems according to installation requirements.",
+          "Design and assembly of control cabinets, electrical switchboards and operator panels. Preparation of electrical and control systems according to the requirements of each installation.",
         icon: Layers3,
       },
       {
         number: "02",
         title: "Machine retrofit and modernisation",
         description:
-          "Replacement of outdated power systems, inverter integration and upgrades to machine control systems.",
+          "Industrial machine modernisation, replacement of outdated power systems, inverter integration and upgrades to machine control systems.",
         icon: Settings,
       },
       {
         number: "03",
         title: "PLC control and Safety",
         description:
-          "PLC control upgrades and implementation of machine safety and safe-stop systems.",
+          "PLC control system upgrades and implementation of machine safety solutions, including safe-stop systems.",
         icon: Workflow,
       },
       {
         number: "04",
         title: "SEP G1 E+D electrical measurements",
         description:
-          "Initial and periodic electrical measurements, including fault loop impedance, insulation resistance, RCD and continuity testing.",
+          "Initial and periodic electrical measurements, including fault loop impedance, insulation resistance, RCD testing and protective conductor continuity.",
         icon: Gauge,
       },
     ],
+
     prefabricationEyebrow: "PREFABRICATION / SWITCHBOARDS",
     prefabricationTitle: "Control cabinets and switchboards.",
     prefabricationDescription:
-      "We provide prefabrication of control cabinets and operator panels. The scope of work is tailored to the function of the equipment, installation requirements and facility needs.",
+      "We provide prefabrication of control cabinets, electrical switchboards and operator panels. The scope of work is tailored to the function of the equipment, installation requirements and facility needs.",
     prefabricationPoints: [
       "Design and preparation of control systems.",
-      "Prefabrication of electrical cabinets and switchboards.",
+      "Prefabrication of control cabinets and electrical switchboards.",
       "Installation of electrical components and control equipment.",
       "Solutions tailored to specific machines and installations.",
     ],
+
     modernizationEyebrow: "MODERNISATION / AUTOMATION",
-    modernizationTitle: "Modernisation instead of replacing the entire system.",
+    modernizationTitle:
+      "Modernisation instead of replacing the entire system.",
     modernizationDescription:
-      "Upgrading existing installations helps adapt machinery and equipment to current technological requirements. Modernisation may include power systems, drives, PLC control and safety solutions.",
+      "Upgrading existing installations helps adapt machinery and equipment to current technological requirements. Modernisation may include power systems, drives, PLC control and machine safety solutions.",
     modernizationPoints: [
       "Replacement of outdated power systems.",
       "Inverter integration and drive modernisation.",
-      "PLC control upgrades.",
-      "Installation of Safety systems.",
+      "PLC control system upgrades.",
+      "Installation of machine safety and safe-stop systems.",
     ],
+
     measurementsEyebrow: "MEASUREMENTS / SEP G1 E+D",
     measurementsTitle: "Electrical measurements and installation testing.",
     measurementsDescription:
-      "We perform initial and periodic electrical installation measurements. The results help assess the condition of an installation and identify irregularities requiring further action.",
+      "We perform initial and periodic electrical installation measurements. The results help assess the technical condition of an installation and identify irregularities requiring further action.",
     measurementItems: [
       "Fault loop impedance measurements.",
       "Insulation resistance measurements.",
       "RCD testing.",
       "Protective conductor continuity testing.",
     ],
+
     repairsEyebrow: "SERVICE / FAULT REMOVAL",
     repairsTitle: "From identifying a problem to resolving it.",
     repairsDescription:
@@ -206,18 +222,20 @@ const content = {
       "Wiring upgrades and improvements.",
       "Removal of faults identified during inspections.",
     ],
+
     thermographyEyebrow: "DIAGNOSTICS / THERMOGRAPHY",
     thermographyTitle: "Combine automation with thermal diagnostics.",
     thermographyDescription:
-      "URSO INSTAL also performs thermographic inspections of industrial installations and equipment. Thermal diagnostics can support the identification of irregularities in switchboards, control cabinets and drives.",
+      "URSO INSTAL also performs thermographic inspections of industrial installations and equipment. Thermal diagnostics supports the identification of irregularities in switchboards, control cabinets and drives.",
     thermographyButton: "Explore thermography services",
+
     contactEyebrow: "CONTACT / URSO INSTAL",
     contactTitle: "Let's discuss your installation.",
     contactDescription:
-      "Tell us about your planned prefabrication, machine modernisation or required measurements. We will discuss the scope of work and possible solutions.",
+      "Tell us about your planned control cabinet prefabrication, machine modernisation or required electrical measurements. We will discuss the scope of work and possible technical solutions.",
     company: "URSO INSTAL – Marcin Zdybek",
     qualification: "SEP G1 E+D qualifications",
-    area: "Service area: Silesia / Throughout Poland",
+    area: "Service area: Throughout Poland",
     nip: "Tax ID: 6462771321",
     contactButton: "Go to contact",
     back: "Back to service selection",
@@ -226,57 +244,63 @@ const content = {
   de: {
     eyebrow: "URSO INSTAL / ELEKTROTECHNIK & AUTOMATISIERUNG",
     badge: "ELEKTROINSTALLATIONEN / INDUSTRIEAUTOMATION",
-    heroTitle: "Elektrotechnik und Automatisierung für anspruchsvolle Industrie.",
+    heroTitle:
+      "Industrieautomation, Schaltschrankbau und Elektroinstallationen.",
     heroDescription:
-      "Planung und Bau von Schaltschränken, Maschinenmodernisierung, SPS-Steuerungen und elektrische Messungen. Technische Unterstützung von der Installation bis zur Fehlerbehebung.",
+      "Planung und Bau von Schaltschränken, Maschinenmodernisierung, SPS-Steuerungen und elektrische Messungen. Technische Unterstützung für Industriebetriebe in ganz Polen.",
     primaryCta: "Projekt besprechen",
     secondaryCta: "Leistungen kennenlernen",
+
     introEyebrow: "LEISTUNGSBEREICHE",
     introTitle: "Technische Lösungen für Ihren Betrieb.",
     introDescription:
-      "Wir unterstützen Industriebetriebe im Bereich Elektroinstallationen und Automatisierung. Dazu gehören neue Anlagen, die Modernisierung bestehender Lösungen, Diagnostik und Fehlerbehebung.",
+      "Wir unterstützen Industriebetriebe im Bereich Elektroinstallationen und Automatisierung. Dazu gehören neue Anlagen, die Modernisierung bestehender Lösungen, Diagnostik und Fehlerbehebung. Wir betreuen Unternehmen in ganz Polen.",
+
     services: [
       {
         number: "01",
         title: "Schaltschrankbau",
         description:
-          "Planung und Montage neuer Schaltanlagen und Bedienpulte. Vorbereitung elektrischer Steuerungssysteme entsprechend den Anforderungen der Anlage.",
+          "Planung und Montage von Schaltschränken, elektrischen Schaltanlagen und Bedienpulten. Vorbereitung elektrischer Steuerungssysteme entsprechend den Anforderungen der Anlage.",
         icon: Layers3,
       },
       {
         number: "02",
         title: "Retrofit und Maschinenmodernisierung",
         description:
-          "Erneuerung veralteter Stromversorgungssysteme, Integration von Frequenzumrichtern und Modernisierung der Maschinensteuerung.",
+          "Modernisierung von Industriemaschinen, Erneuerung veralteter Stromversorgungssysteme, Integration von Frequenzumrichtern und Modernisierung der Maschinensteuerung.",
         icon: Settings,
       },
       {
         number: "03",
         title: "SPS-Steuerung und Safety",
         description:
-          "Modernisierung von SPS-Steuerungen und Umsetzung von Sicherheits- und sicheren Stoppsystemen für Maschinen.",
+          "Modernisierung von SPS-Steuerungen und Umsetzung von Sicherheitslösungen für Maschinen, einschließlich sicherer Stoppsysteme.",
         icon: Workflow,
       },
       {
         number: "04",
         title: "Elektrische Messungen SEP G1 E+D",
         description:
-          "Erst- und Wiederholungsmessungen elektrischer Anlagen, einschließlich Schleifenimpedanz, Isolationswiderstand, RCD und Durchgängigkeit.",
+          "Erst- und Wiederholungsmessungen elektrischer Anlagen, einschließlich Schleifenimpedanz, Isolationswiderstand, RCD-Prüfungen und Durchgängigkeit von Schutzleitern.",
         icon: Gauge,
       },
     ],
+
     prefabricationEyebrow: "SCHALTANLAGEN / SCHALTSCHRANKBAU",
     prefabricationTitle: "Schaltschränke und Steueranlagen.",
     prefabricationDescription:
-      "Wir fertigen Schaltschränke und Bedienpulte. Der Leistungsumfang wird an die Funktion des Geräts, die Anforderungen der Installation und die Bedürfnisse des Betriebs angepasst.",
+      "Wir fertigen Schaltschränke, elektrische Schaltanlagen und Bedienpulte. Der Leistungsumfang wird an die Funktion des Geräts, die Anforderungen der Installation und die Bedürfnisse des Betriebs angepasst.",
     prefabricationPoints: [
       "Planung und Vorbereitung von Steuerungssystemen.",
       "Fertigung elektrischer Schaltschränke und Schaltanlagen.",
       "Montage elektrischer Komponenten und Steuergeräte.",
       "Lösungen für bestimmte Maschinen und Anlagen.",
     ],
+
     modernizationEyebrow: "MODERNISIERUNG / AUTOMATISIERUNG",
-    modernizationTitle: "Modernisierung statt Austausch des gesamten Systems.",
+    modernizationTitle:
+      "Modernisierung statt Austausch des gesamten Systems.",
     modernizationDescription:
       "Die Modernisierung bestehender Anlagen ermöglicht die Anpassung von Maschinen und Geräten an aktuelle technologische Anforderungen. Dazu können Stromversorgung, Antriebe, SPS-Steuerungen und Sicherheitslösungen gehören.",
     modernizationPoints: [
@@ -285,38 +309,42 @@ const content = {
       "Modernisierung der SPS-Steuerung.",
       "Installation von Safety-Systemen.",
     ],
+
     measurementsEyebrow: "MESSUNGEN / SEP G1 E+D",
     measurementsTitle: "Elektrische Messungen und Anlagenprüfung.",
     measurementsDescription:
-      "Wir führen Erst- und Wiederholungsmessungen elektrischer Anlagen durch. Die Ergebnisse helfen, den Zustand der Anlage zu beurteilen und Unregelmäßigkeiten zu erkennen.",
+      "Wir führen Erst- und Wiederholungsmessungen elektrischer Anlagen durch. Die Ergebnisse helfen, den technischen Zustand der Anlage zu beurteilen und Unregelmäßigkeiten zu erkennen.",
     measurementItems: [
       "Messung der Schleifenimpedanz.",
       "Messung des Isolationswiderstands.",
       "Prüfung von RCD-Schutzschaltern.",
       "Prüfung der Durchgängigkeit von Schutzleitern.",
     ],
+
     repairsEyebrow: "SERVICE / FEHLERBEHEBUNG",
     repairsTitle: "Vom Erkennen des Problems bis zur Behebung.",
     repairsDescription:
-      "Unsere Leistungen umfassen auch die Beseitigung von Fehlern, die bei Inspektionen und Messungen festgestellt werden.",
+      "Unsere Leistungen umfassen auch die Beseitigung von Fehlern, die bei Inspektionen und Messungen festgestellt werden. So können wir von der Diagnose zu konkreten technischen Maßnahmen übergehen.",
     repairsPoints: [
       "Reparatur überhitzter elektrischer Verbindungen.",
       "Austausch verschlissener elektrischer Komponenten.",
       "Modernisierung und Verbesserung der Verkabelung.",
       "Behebung bei Inspektionen festgestellter Mängel.",
     ],
+
     thermographyEyebrow: "DIAGNOSTIK / THERMOGRAFIE",
     thermographyTitle: "Automatisierung mit thermischer Diagnostik verbinden.",
     thermographyDescription:
       "URSO INSTAL führt auch thermografische Inspektionen industrieller Anlagen und Geräte durch. Die thermische Diagnostik unterstützt die Erkennung von Unregelmäßigkeiten in Schaltanlagen, Schaltschränken und Antrieben.",
     thermographyButton: "Thermografie-Leistungen entdecken",
+
     contactEyebrow: "KONTAKT / URSO INSTAL",
     contactTitle: "Sprechen wir über Ihre Anlage.",
     contactDescription:
-      "Erzählen Sie uns von Ihrer geplanten Schaltschrankfertigung, Maschinenmodernisierung oder den benötigten Messungen. Wir besprechen den Leistungsumfang und mögliche Lösungen.",
+      "Erzählen Sie uns von Ihrer geplanten Schaltschrankfertigung, Maschinenmodernisierung oder den benötigten elektrischen Messungen. Wir besprechen den Leistungsumfang und mögliche technische Lösungen.",
     company: "URSO INSTAL – Marcin Zdybek",
     qualification: "SEP-Berechtigungen G1 E+D",
-    area: "Einsatzgebiet: Schlesien / Ganz Polen",
+    area: "Einsatzgebiet: Ganz Polen",
     nip: "Steuernummer: 6462771321",
     contactButton: "Zum Kontakt",
     back: "Zurück zur Leistungsauswahl",
@@ -328,7 +356,7 @@ export default function ElektrykaAutomatykaPage() {
   const t = content[locale];
 
   return (
-    <main className="bg-[#f4f4f2] text-[#202326] dark:bg-[#171b1f] dark:text-[#f2f4f5]">
+    <div className="bg-[#f4f4f2] text-[#202326] dark:bg-[#171b1f] dark:text-[#f2f4f5]">
       {/* HERO */}
       <section className="relative isolate min-h-[650px] overflow-hidden bg-[#20272d] text-white lg:min-h-[690px]">
         <Image
@@ -683,6 +711,6 @@ export default function ElektrykaAutomatykaPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
