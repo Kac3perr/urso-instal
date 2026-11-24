@@ -246,7 +246,8 @@ const translations = {
 
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "";
 const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "";
-const web3FormsAccessKey = "3baa4f66-837f-4107-a52c-a7b24e778125";
+const web3FormsAccessKey =
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
 
 export default function KontaktPage() {
   const { locale } = useLocale();
