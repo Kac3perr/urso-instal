@@ -243,7 +243,7 @@ const translations = {
     footer: "URSO INSTAL • Marcin Zdybek",
   },
 };
-const emial = "biuro@ursoinstal.pl";
+
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "";
 const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "";
 const web3FormsAccessKey =
@@ -533,11 +533,11 @@ export default function KontaktPage() {
                         href={`mailto:${contactEmail}`}
                         className="mt-1 block break-all text-sm transition-colors hover:text-[#a9c0cf]"
                       >
-                        {emial}
+                        {contactEmail}
                       </a>
                     ) : (
                       <p className="mt-1 text-sm text-white/60">
-                        biuro@ursoinstal.pl
+                        ursoinstal@gmail.com
                       </p>
                     )}
                   </div>
