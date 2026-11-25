@@ -273,25 +273,25 @@ export default function KontaktPage() {
     setIsSending(true);
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: web3FormsAccessKey,
-          subject: `Zapytanie URSO INSTAL – ${subject}`,
-          from_name: `URSO INSTAL – ${name}`,
-          company,
-          name,
-          email,
-          replyto: email,
-          phone,
-          enquiry_type: subject,
-          message,
-        }),
-      });
+     const response = await fetch("https://api.web3forms.com/submit", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+  body: JSON.stringify({
+    access_key: web3FormsAccessKey,
+    subject: `Zapytanie URSO INSTAL – ${subject}`,
+    from_name: `URSO INSTAL – ${name}`,
+    company,
+    name,
+    email,
+    replyto: email,
+    phone,
+    enquiry_type: subject,
+    message,
+  }),
+});
 
       const result = await response.json();
 
