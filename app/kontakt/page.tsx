@@ -537,7 +537,7 @@ export default function KontaktPage() {
                       </a>
                     ) : (
                       <p className="mt-1 text-sm text-white/60">
-                        ursoinstal@gmail.com
+                        biuro@ursoinstal.pl
                       </p>
                     )}
                   </div>
