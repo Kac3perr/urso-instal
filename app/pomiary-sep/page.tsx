@@ -13,8 +13,6 @@ import {
   Zap,
   Activity,
   Cable,
-  Search,
-  Wrench,
 } from "lucide-react";
 import { useLocale } from "../components/providers/Providers";
 
@@ -354,7 +352,11 @@ const iconMap = {
   zap: Zap,
   activity: Activity,
 };
-
+export const metadata = {
+  alternates: {
+    canonical: "https://ursoinstal.pl/pomiary-sep",
+  },
+};
 export default function PomiarySepPage() {
   const { locale } = useLocale();
   const t = translations[locale];
