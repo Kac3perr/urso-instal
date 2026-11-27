@@ -1,7 +1,6 @@
-
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -246,14 +245,12 @@ const translations = {
 
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "";
 const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "";
-const web3FormsAccessKey =
-  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
 
 export default function KontaktPage() {
   const { locale } = useLocale();
   const t = translations[locale];
-
-  const [company, setCompany] = useState("");
+  const formRenderedAt = useRef(Date.now());
+    const [company, setCompany] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -273,30 +270,32 @@ export default function KontaktPage() {
     setIsSending(true);
 
     try {
-     const response = await fetch("https://api.web3forms.com/submit", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-  body: JSON.stringify({
-    access_key: web3FormsAccessKey,
-    subject: `Zapytanie URSO INSTAL – ${subject}`,
-    from_name: `URSO INSTAL – ${name}`,
-    company,
-    name,
-    email,
-    replyto: email,
-    phone,
-    enquiry_type: subject,
-    message,
-  }),
-});
+      const formData = new FormData(event.currentTarget);
+
+      formData.set("_replyto", email);
+      formData.set("_ts", String(formRenderedAt.current));
+      formData.set(
+        "_subject",
+        `Zapytanie URSO INSTAL – ${subject}`
+      );
+
+      const response = await fetch(
+        "https://formsubmit.app/f/aw8ag7xufa",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
+          body: formData,
+        }
+      );
 
       const result = await response.json();
 
-      if (!response.ok || !result.success) {
-        throw new Error("Web3Forms submission failed");
+      if (!response.ok || !result.ok) {
+        throw new Error(
+          result.error?.message || "FormSubmit submission failed"
+        );
       }
 
       setNotice(t.success);
@@ -308,8 +307,10 @@ export default function KontaktPage() {
       setPhone("");
       setSubject("");
       setMessage("");
+
+      formRenderedAt.current = Date.now();
     } catch (error) {
-      console.error("Web3Forms error:", error);
+      console.error("FormSubmit error:", error);
       setNotice(t.sendError);
       setIsSuccess(false);
     } finally {
@@ -318,7 +319,7 @@ export default function KontaktPage() {
   };
 
   return (
-     <div className="overflow-hidden bg-white text-[#171b20] transition-colors duration-300 dark:bg-[#101316] dark:text-[#edf0f2]">
+    <div className="overflow-hidden bg-white text-[#171b20] transition-colors duration-300 dark:bg-[#101316] dark:text-[#edf0f2]">
       {/* HERO */}
       <section className="border-b border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-[1440px] px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
@@ -350,21 +351,39 @@ export default function KontaktPage() {
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#55758b]">
                 {t.formTitle}
               </p>
+
               <h2 className="text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">
                 {t.formTitle}
               </h2>
+
               <p className="mt-4 text-sm leading-7 text-[#697078] dark:text-[#a6afb7]">
                 {t.formDescription}
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              action="https://formsubmit.app/f/aw8ag7xufa"
+              method="POST"
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              {/* Honeypot – zabezpieczenie antyspamowe */}
+              <input
+                type="text"
+                name="_gotcha"
+                tabIndex={-1}
+                autoComplete="off"
+                style={{ display: "none" }}
+              />
+
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <label className="block">
                   <span className="mb-2 block text-sm font-medium">
                     {t.company}
                   </span>
+
                   <input
+                    name="company"
                     required
                     value={company}
                     onChange={(event) => setCompany(event.target.value)}
@@ -377,7 +396,9 @@ export default function KontaktPage() {
                   <span className="mb-2 block text-sm font-medium">
                     {t.name}
                   </span>
+
                   <input
+                    name="name"
                     required
                     value={name}
                     onChange={(event) => setName(event.target.value)}
@@ -390,7 +411,9 @@ export default function KontaktPage() {
                   <span className="mb-2 block text-sm font-medium">
                     {t.email}
                   </span>
+
                   <input
+                    name="email"
                     required
                     type="email"
                     value={email}
@@ -404,7 +427,9 @@ export default function KontaktPage() {
                   <span className="mb-2 block text-sm font-medium">
                     {t.phone}
                   </span>
+
                   <input
+                    name="phone"
                     type="tel"
                     value={phone}
                     onChange={(event) => setPhone(event.target.value)}
@@ -418,7 +443,9 @@ export default function KontaktPage() {
                 <span className="mb-2 block text-sm font-medium">
                   {t.subject}
                 </span>
+
                 <select
+                  name="subject"
                   required
                   value={subject}
                   onChange={(event) => setSubject(event.target.value)}
@@ -427,6 +454,7 @@ export default function KontaktPage() {
                   <option value="" disabled>
                     {t.subjectPlaceholder}
                   </option>
+
                   {t.subjects.map((item) => (
                     <option key={item} value={item}>
                       {item}
@@ -439,7 +467,9 @@ export default function KontaktPage() {
                 <span className="mb-2 block text-sm font-medium">
                   {t.message}
                 </span>
+
                 <textarea
+                  name="message"
                   required
                   rows={6}
                   value={message}
@@ -474,6 +504,7 @@ export default function KontaktPage() {
                   className="group inline-flex min-h-14 shrink-0 items-center justify-center gap-4 bg-[#243746] px-7 text-sm font-medium text-white transition-colors hover:bg-[#354f62] disabled:cursor-wait disabled:opacity-60 dark:bg-[#dce5eb] dark:text-[#151a1e] dark:hover:bg-white"
                 >
                   {isSending ? t.sending : t.submit}
+
                   <Send
                     size={16}
                     className="transition-transform group-hover:translate-x-1"
@@ -481,7 +512,7 @@ export default function KontaktPage() {
                 </button>
               </div>
             </form>
-          </div>
+                      </div>
 
           {/* DANE FIRMY */}
           <aside className="lg:pt-1">
@@ -579,14 +610,19 @@ export default function KontaktPage() {
                       size={18}
                       className="mt-0.5 shrink-0 text-[#a9c0cf]"
                     />
-                    <p className="text-sm leading-6 text-white/80">{t.iso}</p>
+                    <p className="text-sm leading-6 text-white/80">
+                      {t.iso}
+                    </p>
                   </div>
+
                   <div className="flex items-start gap-3">
                     <Zap
                       size={18}
                       className="mt-0.5 shrink-0 text-[#a9c0cf]"
                     />
-                    <p className="text-sm leading-6 text-white/80">{t.sep}</p>
+                    <p className="text-sm leading-6 text-white/80">
+                      {t.sep}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -597,6 +633,7 @@ export default function KontaktPage() {
                 <MapPin size={19} className="text-[#55758b]" />
                 <p className="text-sm font-semibold">{t.areaTitle}</p>
               </div>
+
               <p className="mt-3 text-sm leading-7 text-[#697078] dark:text-[#a6afb7]">
                 {t.areaDescription}
               </p>
@@ -612,6 +649,7 @@ export default function KontaktPage() {
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#55758b]">
               {t.servicesLabel}
             </p>
+
             <h2 className="text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">
               {t.servicesTitle}
             </h2>
@@ -628,9 +666,11 @@ export default function KontaktPage() {
                   <span className="text-xs font-medium tracking-widest text-[#55758b]">
                     0{index + 1}
                   </span>
+
                   <h3 className="mt-7 text-xl font-semibold tracking-tight">
                     {service.title}
                   </h3>
+
                   <p className="mt-3 text-sm leading-7 text-[#697078] dark:text-[#a6afb7]">
                     {service.description}
                   </p>
@@ -640,6 +680,7 @@ export default function KontaktPage() {
                   <span className="text-xs font-semibold uppercase tracking-widest text-[#55758b]">
                     URSO INSTAL
                   </span>
+
                   <ArrowUpRight
                     size={19}
                     className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
@@ -654,6 +695,7 @@ export default function KontaktPage() {
       {/* DOLNA NAWIGACJA */}
       <div className="mx-auto flex max-w-[1440px] flex-col gap-4 px-6 py-7 text-xs text-[#899198] sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-16">
         <span>{t.footer}</span>
+
         <Link
           href="/"
           className="inline-flex items-center gap-2 transition-colors hover:text-[#55758b]"
